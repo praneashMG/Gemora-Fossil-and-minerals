@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/fav.png" type="image/jpeg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Lost in Time | 404 Error</title>
+    <script src="tailwind.js"></script>
+    <style>
+        :root, html[data-theme='light'] {
+            --color-background: #FFFFFF;
+            --color-primary-text: #5C4033; 
+            --color-secondary-text: #5C4033;
+            --color-accent: #E6B325;
+            --color-accent-light: #5C4033;
+            --color-border: #E5E7EB; 
+            --color-hover: #FFF8E6; 
+        }
+        html[data-theme='dark'] {
+            --color-background: #000000;
+            --color-primary-text: #FFFFFF;
+            --color-secondary-text: #D7CCC8;
+            --color-accent: #E6B325; 
+            --color-border: #374151; 
+        }
+        
+        body {
+            background-color: var(--color-background);
+            color: var(--color-primary-text);
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #E6B325 0%, #5C4033 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            opacity: 0.88;
+            transform: scale(1.04);
+            box-shadow: 0 6px 18px rgba(230,179,37,0.3);
+        }
+
+        .fossil-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen justify-center items-center overflow-hidden">
+
+    <!-- Background Decoration -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-accent/5 blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] rounded-full bg-accent-light/5 blur-[120px]"></div>
+    </div>
+
+    <main class="relative z-10 text-center px-6">
+        <!-- Visual Icon -->
+        <div class="mb-8 fossil-float">
+            <div class="inline-flex items-center justify-center w-32 h-32 rounded-full bg-accent/10 border-2 border-accent/20">
+                <i class="fas fa-compass text-6xl text-accent"></i>
+            </div>
+        </div>
+
+        <!-- 404 Text -->
+        <h1 class="text-9xl font-serif font-black text-accent mb-4 tracking-tighter">404</h1>
+        
+        <h2 class="text-3xl md:text-4xl font-bold text-primary-text mb-6">
+            Specimen Not Found
+        </h2>
+        
+        <p class="text-secondary-text text-lg max-w-md mx-auto mb-10 leading-relaxed">
+            This page has been buried under layers of sediment. It seems the link you followed has become extinct or moved to a new geological era.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="index.html" class="btn-primary px-8 py-4 rounded-xl font-bold shadow-lg flex items-center gap-3">
+                <i class="fas fa-home"></i>
+                Return to Surface
+            </a>
+            
+            <a href="contact.html" class="px-8 py-4 rounded-xl font-bold border-2 border-border hover:bg-hover transition-colors flex items-center gap-3 text-primary-text">
+                <i class="fas fa-envelope"></i>
+                Report a Discovery
+            </a>
+        </div>
+
+        <!-- Small Footer Link -->
+        <div class="mt-16">
+            <a href="index.html" class="text-sm font-serif font-extrabold tracking-tight hover:opacity-80 transition-opacity">
+                <span style="color: #E6B325;">Gemora</span>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // Apply persisted theme
+        const applyTheme = (theme) => {
+            document.documentElement.setAttribute('data-theme', theme);
+        };
+        applyTheme(localStorage.getItem('theme') || 'light');
+    </script>
+</body>
+</html>
