@@ -413,9 +413,70 @@
                 </div>
 
                 <!-- SUBSCRIPTION CONFIGURATION / SETTINGS -->
-                <div id="settings" class="admin-section hidden">
-                    <div class="dashboard-card p-6 reveal"><h2 class="text-2xl font-serif font-bold">Subscription & Shipping Config</h2><div class="space-y-5 mt-5"><div><label class="block font-bold mb-1">Quarterly Shipment Schedule</label><select class="p-2 border rounded-xl"><option>Q2: May 1 - May 20</option><option>Q3: Aug 1 - Aug 20</option></select></div><div><label class="block font-bold mb-1">Member Tasting Note Access (PDF)</label><input type="file" class="text-sm"/></div><div class="flex items-center justify-between pt-3"><span class="font-bold">Auto-billing for Club Members</span><label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" class="sr-only peer" checked><div class="w-11 h-6 bg-gray-300 rounded-full peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-accent"></div></label></div><button class="btn-accent w-full py-3 rounded-xl mt-3">Save Subscription Settings</button></div></div>
-                </div>
+<div id="settings" class="admin-section hidden">
+    
+    <div class="dashboard-card p-6 reveal bg-white dark:bg-[#111827] rounded-2xl">
+        
+        <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white">
+            Subscription & Shipping Config
+        </h2>
+
+        <div class="space-y-5 mt-5">
+
+            <!-- Shipment Schedule -->
+            <div>
+                <label class="block font-bold mb-1 text-gray-800 dark:text-gray-200">
+                    Quarterly Shipment Schedule
+                </label>
+
+                <select class="p-2 border border-gray-300 dark:border-gray-700 rounded-xl w-full bg-white dark:bg-[#1f2937] text-gray-900 dark:text-white">
+                    <option>Q2: May 1 - May 20</option>
+                    <option>Q3: Aug 1 - Aug 20</option>
+                </select>
+            </div>
+
+            <!-- PDF Upload -->
+            <div>
+                <label class="block font-bold mb-1 text-gray-800 dark:text-gray-200">
+                    Member Tasting Note Access (PDF)
+                </label>
+
+                <input type="file" class="text-sm text-gray-700 dark:text-gray-300"/>
+            </div>
+
+            <!-- Toggle -->
+            <div class="flex items-center justify-between pt-3">
+                <span class="font-bold text-gray-800 dark:text-gray-200">
+                    Auto-billing for Club Members
+                </span>
+
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" checked>
+
+                    <div class="w-11 h-6 bg-gray-300 rounded-full
+                        peer-checked:after:translate-x-full
+                        after:content-['']
+                        after:absolute
+                        after:top-[2px]
+                        after:left-[2px]
+                        after:bg-white
+                        after:rounded-full
+                        after:h-5
+                        after:w-5
+                        after:transition-all
+                        peer-checked:bg-accent">
+                    </div>
+                </label>
+            </div>
+
+            <!-- Button -->
+            <button class="btn-accent w-full py-3 rounded-xl mt-3">
+                Save Subscription Settings
+            </button>
+
+        </div>
+    </div>
+</div>
 
                 <footer class="text-center text-xs text-secondary-text border-t border-border pt-8 pb-4">
                     <p>© 2026 Gemora Brewers' Guild — Artisanal fermentation & craftsmanship</p>
