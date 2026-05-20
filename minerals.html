@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <title>Minerals | Gemora</title>
 
-<script src="tailwind.js"></script>
+    <script src="tailwind.js"></script>
     <style>
         /* --- Refined Premium Green & Rich Brown Palette --- */
-        :root, html[data-theme='light'] {
+        :root,
+        html[data-theme='light'] {
             --color-background: #FFFFFF;
-            --color-primary-text: #5C4033; 
-            --color-secondary-text: #5C4033; /* Neat Rich Brown */
-            --color-accent: #E6B325; /* Lawn Green */
-            --color-accent-light: #5C4033; /* Rich Brown */
-            --color-border: #E5E7EB; 
-            --color-hover: #FFF8E6; 
+            --color-primary-text: #5C4033;
+            --color-secondary-text: #5C4033;
+            /* Neat Rich Brown */
+            --color-accent: #E6B325;
+            /* Lawn Green */
+            --color-accent-light: #5C4033;
+            /* Rich Brown */
+            --color-border: #E5E7EB;
+            --color-hover: #FFF8E6;
             --color-footer-bg: #5C4033;
-            --color-footer-text: #EAEAEA; 
+            --color-footer-text: #EAEAEA;
         }
+
         html[data-theme='dark'] {
             --color-background: #000000;
             --color-primary-text: #FFFFFF;
             --color-secondary-text: #D7CCC8;
-            --color-accent: #E6B325; 
-            --color-accent-light: #BCAAA4; 
-            --color-border: #374151; 
+            --color-accent: #E6B325;
+            --color-accent-light: #BCAAA4;
+            --color-border: #374151;
             --color-hover: #2B1D16;
             --color-footer-bg: #000000;
             --color-footer-text: #FFFFFF;
         }
-        
+
         body {
             background-color: var(--color-background);
             color: var(--color-primary-text);
@@ -40,14 +46,34 @@
             transition: background-color 0.3s, color 0.3s;
             overflow-x: hidden;
         }
-        
-        .text-primary-text { color: var(--color-primary-text); }
-        .text-secondary-text { color: var(--color-secondary-text); }
-        .text-accent { color: var(--color-accent); }
-        .text-accent-light { color: var(--color-accent-light); }
-        .bg-background { background-color: var(--color-background); }
-        .bg-hover { background-color: var(--color-hover); }
-        .border-border { border-color: var(--color-border); }
+
+        .text-primary-text {
+            color: var(--color-primary-text);
+        }
+
+        .text-secondary-text {
+            color: var(--color-secondary-text);
+        }
+
+        .text-accent {
+            color: var(--color-accent);
+        }
+
+        .text-accent-light {
+            color: var(--color-accent-light);
+        }
+
+        .bg-background {
+            background-color: var(--color-background);
+        }
+
+        .bg-hover {
+            background-color: var(--color-hover);
+        }
+
+        .border-border {
+            border-color: var(--color-border);
+        }
 
         /* Rich Gradient */
         .bg-custom-gradient {
@@ -58,9 +84,12 @@
             background-color: var(--color-footer-bg);
             color: var(--color-footer-text);
         }
+
         #main-footer .footer-heading {
-            color: #E6B325 !important; /* Elegant Green Heading */
+            color: #E6B325 !important;
+            /* Elegant Green Heading */
         }
+
         #main-footer .footer-link:hover {
             color: #BCAAA4;
             padding-left: 4px;
@@ -74,21 +103,28 @@
             padding-top: 0.25rem;
             padding-bottom: 0.25rem;
         }
+
         .nav-link::after {
             content: '';
             position: absolute;
-            left: 0; right: 0; bottom: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             height: 2px;
             background-color: var(--color-accent);
             transform: scaleX(0);
             transition: transform 0.3s;
         }
+
         .nav-link:hover::after {
             transform: scaleX(1);
         }
 
         /* DROPDOWN */
-        .dropdown-wrapper { position: relative; }
+        .dropdown-wrapper {
+            position: relative;
+        }
+
         .dropdown-menu {
             position: absolute;
             top: calc(100% + 5px);
@@ -104,10 +140,14 @@
             transform: translateY(-10px);
             transition: all 0.3s ease;
         }
+
         .dropdown-wrapper:hover .dropdown-menu {
-            opacity: 1; visibility: visible; transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
             display: block;
         }
+
         .dropdown-menu a {
             display: block;
             padding: 0.75rem 1rem;
@@ -117,7 +157,11 @@
             transition: all 0.2s ease;
             border-bottom: 1px solid var(--color-border);
         }
-        .dropdown-menu a:last-child { border-bottom: none; }
+
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
         .dropdown-menu a:hover {
             background-color: var(--color-hover);
             color: var(--color-accent);
@@ -125,22 +169,36 @@
         }
 
         @media (max-width: 1024px) {
-            .dropdown-menu { position: static; display: none; opacity: 1; visibility: visible; transform: none; box-shadow: none; }
-            .dropdown-wrapper:hover .dropdown-menu { display: block; }
+            .dropdown-menu {
+                position: static;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+            }
+
+            .dropdown-wrapper:hover .dropdown-menu {
+                display: block;
+            }
         }
 
         /* ── Canonical Button System ── */
-        .btn-primary, .book-btn {
+        .btn-primary,
+        .book-btn {
             background: linear-gradient(135deg, #E6B325 0%, #5C4033 100%);
             color: white;
             transition: all 0.3s ease;
             cursor: pointer;
         }
-        .btn-primary:hover, .book-btn:hover {
+
+        .btn-primary:hover,
+        .book-btn:hover {
             opacity: 0.88;
             transform: scale(1.04);
-            box-shadow: 0 6px 18px rgba(230,179,37,0.3);
+            box-shadow: 0 6px 18px rgba(230, 179, 37, 0.3);
         }
+
         .btn-outline {
             background: transparent;
             color: var(--color-accent);
@@ -148,37 +206,44 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
+
         .btn-outline:hover {
             background: var(--color-accent);
             color: white;
-            box-shadow: 0 4px 12px rgba(230,179,37,0.25);
+            box-shadow: 0 4px 12px rgba(230, 179, 37, 0.25);
         }
+
         html[data-theme='dark'] .btn-outline {
             color: #E6B325;
             border-color: #E6B325;
         }
+
         html[data-theme='dark'] .btn-outline:hover {
             background: #E6B325;
             color: #000;
         }
+
         .btn-cta-white {
             background: white;
             color: #E6B325;
             transition: all 0.3s ease;
             cursor: pointer;
         }
+
         .btn-cta-white:hover {
             background: #f3f4f6;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
+
 <body class="antialiased flex flex-col min-h-screen">
 
-    <header class="sticky top-0 z-50 transition-colors duration-300 shadow-xl border-b border-border bg-background" id="main-header">
+    <header class="sticky top-0 z-50 transition-colors duration-300 shadow-xl border-b border-border bg-background"
+        id="main-header">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between h-[70px]">
-            <a href="index.html" class="text-3xl font-serif font-extrabold tracking-tight">    
+            <a href="index.html" class="text-3xl font-serif font-extrabold tracking-tight">
                 <span style="color: #E6B325;">Gemora</span>
             </a>
 
@@ -187,23 +252,31 @@
                     <div class="dropdown-wrapper">
                         <button class="nav-link flex items-center" id="home-dropdown-btn">
                             Home
-                            <svg class="w-3 h-3 ml-1 relative top-[2.5px] transition-transform duration-200 text-primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-3 h-3 ml-1 relative top-[2.5px] transition-transform duration-200 text-primary-text"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
                         <div class="dropdown-menu">
                             <a href="index.html">Home 1</a>
                             <a href="home2.html">Home 2</a>
                         </div>
                     </div>
-<a href="about.html" class="nav-link">About Us</a>
-<a href="specimens.html" class="nav-link">Specimens</a>
-<a href="fossils.html" class="nav-link">Fossils</a>
-<a href="minerals.html" class="nav-link">Minerals</a>
-<a href="collections.html" class="nav-link">Collections</a>
-<a href="contact.html" class="nav-link">Contact</a>
- <div class="dropdown-wrapper">
+                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="specimens.html" class="nav-link">Specimens</a>
+                    <a href="fossils.html" class="nav-link">Fossils</a>
+                    <a href="minerals.html" class="nav-link">Minerals</a>
+                    <a href="collections.html" class="nav-link">Collections</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                    <div class="dropdown-wrapper">
                         <button class="nav-link flex items-center" id="dashboard-dropdown-btn">
                             Dashboard
-                            <svg class="w-3 h-3 ml-1 relative top-[2.5px] transition-transform duration-200 text-primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-3 h-3 ml-1 relative top-[2.5px] transition-transform duration-200 text-primary-text"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </button>
                         <div class="dropdown-menu">
                             <a href="admin.html">Admin Dashboard</a>
@@ -213,452 +286,541 @@
                 </div>
 
                 <div class="w-px h-6 bg-border mx-3"></div>
-                
+
                 <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="icon-btn text-primary-text hover:text-accent p-1.5 rounded-full transition duration-200">
-                        <svg class="w-6 h-6 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <svg class="w-6 h-6 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <button id="theme-toggle"
+                        class="icon-btn text-primary-text hover:text-accent p-1.5 rounded-full transition duration-200">
+                        <svg class="w-6 h-6 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <svg class="w-6 h-6 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
                     </button>
-                    <button id="lang-icon" class="text-primary-text hover:text-accent p-1.5 rounded-full transition duration-200">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-</svg>                    </button>
+                    <button id="lang-icon"
+                        class="text-primary-text hover:text-accent p-1.5 rounded-full transition duration-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                        </svg> </button>
                     <div class="flex items-center gap-3 ml-3">
-                        <a href="login.html" class="book-btn px-6 py-2.5 rounded-xl font-bold shadow-md">Login</a>
+                        <a href="login.html" class="btn-outline px-6 py-2 rounded-xl font-bold shadow-md">Login</a>
                         <a href="signup.html" class="book-btn px-6 py-2.5 rounded-xl font-bold shadow-md">Sign Up</a>
                     </div>
                 </div>
             </div>
 
             <div class="xl:hidden flex items-center">
-                <button id="mobile-menu-open" class="icon-btn text-primary-text hover:text-accent p-1.5 rounded-full"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg></button>
+                <button id="mobile-menu-open"
+                    class="icon-btn text-primary-text hover:text-accent p-1.5 rounded-full"><svg class="w-7 h-7"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg></button>
             </div>
         </nav>
     </header>
 
     <main class="flex-grow">
-<!-- SECTION 1: THE MINERAL HERO (CONSISTENT WITH ABOUT PAGE) -->
-<section class="relative py-10 lg:py-16 overflow-hidden bg-background">
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col lg:flex-row items-center gap-16">
-            <div class="w-full lg:w-1/2 ltr:text-left rtl:text-right">
-                <span class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent font-bold text-xs uppercase tracking-widest mb-6">
-                    Natural Geometry
-                </span>
-                <h1 class="text-4xl md:text-6xl font-serif font-bold text-primary-text mb-8 leading-tight">
-                    Earth's Chemical <br><span class="italic text-accent">Poetry.</span>
-                </h1>
-                <p class="text-secondary-text text-lg leading-relaxed mb-8">
-                    Explore the world's most significant mineral specimens. From rare silicates to vibrant oxides, Gemora provides specimens selected for their crystal habit, transparency, and scientific locality.
-                </p>
-                <div class="flex items-center gap-8">
-                    <div>
-                        <div class="text-3xl font-bold text-primary-text">150+</div>
-                        <div class="text-xs uppercase tracking-widest text-accent font-bold">Species Cataloged</div>
+        <!-- SECTION 1: THE MINERAL HERO (CONSISTENT WITH ABOUT PAGE) -->
+        <section class="relative py-10 lg:py-16 overflow-hidden bg-background">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="w-full lg:w-1/2 ltr:text-left rtl:text-right">
+                        <span
+                            class="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent font-bold text-xs uppercase tracking-widest mb-6">
+                            Natural Geometry
+                        </span>
+                        <h1 class="text-4xl md:text-6xl font-serif font-bold text-primary-text mb-8 leading-tight">
+                            Earth's Chemical <br><span class="italic text-accent">Poetry.</span>
+                        </h1>
+                        <p class="text-secondary-text text-lg leading-relaxed mb-8">
+                            Explore the world's most significant mineral specimens. From rare silicates to vibrant
+                            oxides, Gemora provides specimens selected for their crystal habit, transparency, and
+                            scientific locality.
+                        </p>
+                        <div class="flex items-center gap-8">
+                            <div>
+                                <div class="text-3xl font-bold text-primary-text">150+</div>
+                                <div class="text-xs uppercase tracking-widest text-accent font-bold">Species Cataloged
+                                </div>
+                            </div>
+                            <div class="w-px h-10 bg-border"></div>
+                            <div>
+                                <div class="text-3xl font-bold text-primary-text">9.0</div>
+                                <div class="text-xs uppercase tracking-widest text-accent font-bold">Max Mohs Hardness
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="w-px h-10 bg-border"></div>
-                    <div>
-                        <div class="text-3xl font-bold text-primary-text">9.0</div>
-                        <div class="text-xs uppercase tracking-widest text-accent font-bold">Max Mohs Hardness</div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full lg:w-1/2 relative">
-                <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border border-border group">
-                    <img src="/assets/tro.jpg" alt="Mineral Specimen" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</section>
+                    <div class="w-full lg:w-1/2 relative">
+                        <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border border-border group">
+                            <img src="/assets/tro.jpg" alt="Mineral Specimen"
+                                class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                        </div>
 
-<!-- SECTION 2: THE STAGGERED MOSAIC (AESTHETIC SPOTLIGHT) -->
-<section class="py-24 bg-hover/10 overflow-hidden">
-    <div class="container mx-auto px-6">
-        <div class="flex flex-col lg:flex-row gap-20">
-            <div class="w-full lg:w-2/5">
-                <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary-text mb-8">Formed by <br><span class="italic text-accent">Pressure.</span></h2>
-                <p class="text-secondary-text text-lg mb-10">Minerals are the physical record of Earth's internal chemistry. We focus on 'Thrive' specimens—those that grew in perfect conditions to achieve maximum termination.</p>
-                <div class="relative p-8 rounded-3xl bg-background border border-border shadow-inner">
-                    <h4 class="font-bold text-xl mb-4 text-primary-text">Lustre & Light</h4>
-                    <p class="text-sm text-secondary-text leading-relaxed">Our curation team prioritizes specimens that exhibit vitreous, adamantine, or pearly lustre, ensuring they serve as high-end visual centerpieces.</p>
-                </div>
-            </div>
-            <div class="w-full lg:w-3/5 grid grid-cols-2 gap-4">
-                <div class="space-y-4 pt-12">
-                    <div class="rounded-3xl overflow-hidden h-80 border border-border">
-                        <img src="/assets/r1.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-                    </div>
-                    <div class="rounded-3xl overflow-hidden h-60 border border-border">
-                        <img src="/assets/r3.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <div class="rounded-3xl overflow-hidden h-80 border border-border ">
-                        <img src="/assets/r4.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-                    </div>
-                    <div class="rounded-3xl overflow-hidden h-96 border border-border">
-                        <img src="/assets/r2.jpg" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- SECTION 3: SCIENTIFIC PROPERTY CARDS (VERTICAL LAYOUT) -->
-<section class="py-24 bg-background">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-20">
-            <span class="text-accent font-bold text-xs uppercase tracking-widest">Laboratory Data</span>
-            <h2 class="text-4xl font-serif font-bold text-primary-text mt-4">Mineralogical Identifiers</h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-0 border border-border rounded-[3rem] overflow-hidden shadow-2xl">
-            <div class="p-10 border-b md:border-b-0 md:border-r border-border hover:bg-hover transition-colors group">
-                <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-gem"></i></div>
-                <h5 class="font-bold text-lg mb-2">Hardness</h5>
-                <p class="text-sm text-secondary-text">Verification against the Mohs scale for durability assessment.</p>
+        <!-- SECTION 2: THE STAGGERED MOSAIC (AESTHETIC SPOTLIGHT) -->
+        <section class="py-24 bg-hover/10 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-20">
+                    <div class="w-full lg:w-2/5">
+                        <h2 class="text-3xl md:text-5xl font-serif font-bold text-primary-text mb-8">Formed by <br><span
+                                class="italic text-accent">Pressure.</span></h2>
+                        <p class="text-secondary-text text-lg mb-10">Minerals are the physical record of Earth's
+                            internal chemistry. We focus on 'Thrive' specimens—those that grew in perfect conditions to
+                            achieve maximum termination.</p>
+                        <div class="relative p-8 rounded-3xl bg-background border border-border shadow-inner">
+                            <h4 class="font-bold text-xl mb-4 text-primary-text">Lustre & Light</h4>
+                            <p class="text-sm text-secondary-text leading-relaxed">Our curation team prioritizes
+                                specimens that exhibit vitreous, adamantine, or pearly lustre, ensuring they serve as
+                                high-end visual centerpieces.</p>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-3/5 grid grid-cols-2 gap-4">
+                        <div class="space-y-4 pt-12">
+                            <div class="rounded-3xl overflow-hidden h-80 border border-border">
+                                <img src="/assets/r1.jpg"
+                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="rounded-3xl overflow-hidden h-60 border border-border">
+                                <img src="/assets/r3.jpg"
+                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="rounded-3xl overflow-hidden h-80 border border-border ">
+                                <img src="/assets/r4.jpg"
+                                    class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                            </div>
+                            <div class="rounded-3xl overflow-hidden h-96 border border-border">
+                                <img src="/assets/r2.jpg" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="p-10 border-b md:border-b-0 md:border-r border-border hover:bg-hover transition-colors group">
-                <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-microscope"></i></div>
-                <h5 class="font-bold text-lg mb-2">Cleavage</h5>
-                <p class="text-sm text-secondary-text">Analysis of internal planes of weakness and crystal fracture.</p>
+        </section>
+
+        <!-- SECTION 3: SCIENTIFIC PROPERTY CARDS (VERTICAL LAYOUT) -->
+        <section class="py-24 bg-background">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-20">
+                    <span class="text-accent font-bold text-xs uppercase tracking-widest">Laboratory Data</span>
+                    <h2 class="text-4xl font-serif font-bold text-primary-text mt-4">Mineralogical Identifiers</h2>
+                </div>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-4 gap-0 border border-border rounded-[3rem] overflow-hidden shadow-2xl">
+                    <div
+                        class="p-10 border-b md:border-b-0 md:border-r border-border hover:bg-hover transition-colors group">
+                        <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i
+                                class="fas fa-gem"></i></div>
+                        <h5 class="font-bold text-lg mb-2">Hardness</h5>
+                        <p class="text-sm text-secondary-text">Verification against the Mohs scale for durability
+                            assessment.</p>
+                    </div>
+                    <div
+                        class="p-10 border-b md:border-b-0 md:border-r border-border hover:bg-hover transition-colors group">
+                        <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i
+                                class="fas fa-microscope"></i></div>
+                        <h5 class="font-bold text-lg mb-2">Cleavage</h5>
+                        <p class="text-sm text-secondary-text">Analysis of internal planes of weakness and crystal
+                            fracture.</p>
+                    </div>
+                    <div
+                        class="p-10 border-b md:border-b-0 md:border-r border-border hover:bg-hover transition-colors group">
+                        <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i
+                                class="fas fa-flask"></i></div>
+                        <h5 class="font-bold text-lg mb-2">Chemistry</h5>
+                        <p class="text-sm text-secondary-text">Identifying silicate, carbonate, or oxide compositions.
+                        </p>
+                    </div>
+                    <div class="p-10 hover:bg-hover transition-colors group">
+                        <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i
+                                class="fas fa-weight-hanging"></i></div>
+                        <h5 class="font-bold text-lg mb-2">Density</h5>
+                        <p class="text-sm text-secondary-text">Specific gravity measurements for authentic
+                            identification.</p>
+                    </div>
+                </div>
             </div>
-            <div class="p-10 border-b md:border-b-0 md:border-r border-border hover:bg-hover transition-colors group">
-                <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-flask"></i></div>
-                <h5 class="font-bold text-lg mb-2">Chemistry</h5>
-                <p class="text-sm text-secondary-text">Identifying silicate, carbonate, or oxide compositions.</p>
-            </div>
-            <div class="p-10 hover:bg-hover transition-colors group">
-                <div class="text-accent text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-weight-hanging"></i></div>
-                <h5 class="font-bold text-lg mb-2">Density</h5>
-                <p class="text-sm text-secondary-text">Specific gravity measurements for authentic identification.</p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- SECTION 4 : CRYSTAL COLLECTION SHOWCASE -->
-<section class="py-28 bg-background overflow-hidden transition-colors duration-300">
-    <div class="container mx-auto px-6">
+        </section>
+        <!-- SECTION 4 : CRYSTAL COLLECTION SHOWCASE -->
+        <section class="py-28 bg-background overflow-hidden transition-colors duration-300">
+            <div class="container mx-auto px-6">
 
-        <!-- Heading -->
-        <div class="max-w-4xl mx-auto text-center mb-20">
-            <span class="uppercase tracking-[0.4em] text-xs font-bold text-accent">
-                Crystal Structures
-            </span>
-
-            <h2 class="mt-6 text-5xl md:text-7xl font-serif font-bold text-primary-text leading-tight">
-                Natural Geometry
-                <span class="italic text-accent-light">Refined.</span>
-            </h2>
-
-            <p class="mt-8 text-secondary-text text-lg leading-relaxed max-w-2xl mx-auto">
-                Museum-grade mineral specimens selected for symmetry, crystal habit,
-                structural precision, and visual rarity.
-            </p>
-        </div>
-
-        <!-- Grid -->
-        <div class="grid lg:grid-cols-3 gap-8">
-
-            <!-- Featured Image -->
-            <div class="lg:col-span-2 relative rounded-[3rem] overflow-hidden h-[650px] group border border-border">
-
-                <img src="/assets/qw.jpeg"
-                    class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
-
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-
-                <div class="absolute bottom-0 left-0 p-10 md:p-14 text-white">
-
-                    <span class="uppercase tracking-[0.3em] text-xs text-white/60 font-bold">
-                        Featured Formation
+                <!-- Heading -->
+                <div class="max-w-4xl mx-auto text-center mb-20">
+                    <span class="uppercase tracking-[0.4em] text-xs font-bold text-accent">
+                        Crystal Structures
                     </span>
 
-                    <h3 class="text-4xl md:text-5xl font-serif font-bold mt-5 mb-6">
-                        Hexagonal
-                        <span class="italic text-accent">Quartz</span>
-                    </h3>
+                    <h2 class="mt-6 text-5xl md:text-7xl font-serif font-bold text-primary-text leading-tight">
+                        Natural Geometry
+                        <span class="italic text-accent-light">Refined.</span>
+                    </h2>
 
-                    <p class="text-white/70 max-w-xl leading-relaxed text-lg">
-                        Exceptional natural termination with museum-quality clarity
-                        and symmetrical crystal growth.
-                    </p>
-
-                </div>
-            </div>
-
-            <!-- Side Cards -->
-            <div class="flex flex-col gap-8">
-
-                <!-- Card -->
-                <div class="border border-border bg-background rounded-[2.5rem] p-10 hover:bg-hover transition-all duration-500 group">
-
-                    <div class="flex items-center justify-between mb-12">
-                        <span class="text-5xl font-serif text-secondary-text/20">
-                            01
-                        </span>
-
-                        <div class="w-12 h-[1px] bg-border"></div>
-                    </div>
-
-                    <h4 class="text-2xl font-serif font-bold mb-4 text-primary-text">
-                        Isometric
-                    </h4>
-
-                    <p class="text-secondary-text leading-relaxed">
-                        Cubic formations displaying balanced geometric growth and
-                        sharp crystal edges.
+                    <p class="mt-8 text-secondary-text text-lg leading-relaxed max-w-2xl mx-auto">
+                        Museum-grade mineral specimens selected for symmetry, crystal habit,
+                        structural precision, and visual rarity.
                     </p>
                 </div>
 
-                <!-- Dark Accent Card -->
-                <div class="bg-primary-text text-background rounded-[2.5rem] p-10 relative overflow-hidden">
+                <!-- Grid -->
+                <div class="grid lg:grid-cols-3 gap-8">
 
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+                    <!-- Featured Image -->
+                    <div
+                        class="lg:col-span-2 relative rounded-[3rem] overflow-hidden h-[650px] group border border-border">
 
-                      <span class="text-5xl font-serif text-secondary-text/20">
-                            02
-                        </span>
+                        <img src="/assets/qw.jpeg"
+                            class="w-full h-full object-cover transition duration-1000 group-hover:scale-105">
 
-                    <h4 class="text-2xl font-serif font-bold mt-10 mb-4">
-                        Orthorhombic
-                    </h4>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
-                    <p class="opacity-70 leading-relaxed mb-8">
-                        Angular mineral structures with distinctive axial dimensions
-                        prized by collectors.
-                    </p>
+                        <div class="absolute bottom-0 left-0 p-10 md:p-14 text-white">
 
-                    <div class="flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-bold text-accent">
-                        <div class="w-2 h-2 rounded-full bg-accent"></div>
-                        Rare Collector Grade
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-<!-- SECTION 5 : PREMIUM SPECIMEN SHOWCASE -->
-<section class="py-24 bg-background overflow-hidden transition-colors duration-300">
-    <div class="container mx-auto px-6">
-
-        <!-- Top Heading -->
-        <div class="max-w-3xl mb-16">
-            <span class="text-accent uppercase tracking-[0.35em] text-xs font-bold">
-                Featured Collection
-            </span>
-
-            <h2 class="mt-5 text-4xl md:text-6xl font-serif font-bold text-primary-text leading-tight">
-                Rare Geological
-                <span class="italic text-accent-light">Masterpieces</span>
-            </h2>
-
-            <p class="mt-6 text-secondary-text text-lg leading-relaxed">
-                Discover museum-quality fossil and mineral specimens carefully selected
-                for rarity, preservation, and scientific significance.
-            </p>
-        </div>
-
-        <!-- Main Layout -->
-        <div class="grid lg:grid-cols-2 gap-10 items-center">
-
-            <!-- Left Image Card -->
-            <div class="relative group overflow-hidden rounded-[3rem] border border-border">
-
-                <img src="/assets/ul.jpg"
-                    class="w-full h-[500px] md:h-[650px] object-cover transition duration-1000 group-hover:scale-105">
-
-                <!-- Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-                <!-- Floating Info -->
-                <div class="absolute bottom-0 left-0 p-8 md:p-12 text-white">
-
-                    <div class="flex items-center gap-3 mb-5">
-                        <div class="w-3 h-3 rounded-full bg-accent"></div>
-
-                        <span class="uppercase tracking-[0.25em] text-xs font-bold text-white/70">
-                            Collector Grade
-                        </span>
-                    </div>
-
-                    <h3 class="text-3xl md:text-5xl font-serif font-bold leading-tight mb-5">
-                        Imperial Topaz
-                    </h3>
-
-                    <p class="text-white/70 leading-relaxed max-w-xl text-sm md:text-lg">
-                        Exceptionally preserved crystal formations sourced from rare
-                        geological regions with high natural clarity and structure.
-                    </p>
-
-                </div>
-            </div>
-
-            <!-- Right Content -->
-            <div class="space-y-6">
-
-                <!-- Card -->
-                <div class="bg-hover border border-border rounded-[2.5rem] p-8 md:p-10 hover:shadow-xl transition-all duration-500">
-
-                    <div class="flex items-start justify-between gap-5">
-
-                        <div>
-                            <span class="text-accent text-xs uppercase tracking-[0.25em] font-bold">
-                                Origin
+                            <span class="uppercase tracking-[0.3em] text-xs text-white/60 font-bold">
+                                Featured Formation
                             </span>
 
-                            <h4 class="text-2xl font-serif font-bold text-primary-text mt-4 mb-4">
-                                Brazilian Highlands
+                            <h3 class="text-4xl md:text-5xl font-serif font-bold mt-5 mb-6">
+                                Hexagonal
+                                <span class="italic text-accent">Quartz</span>
+                            </h3>
+
+                            <p class="text-white/70 max-w-xl leading-relaxed text-lg">
+                                Exceptional natural termination with museum-quality clarity
+                                and symmetrical crystal growth.
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Side Cards -->
+                    <div class="flex flex-col gap-8">
+
+                        <!-- Card -->
+                        <div
+                            class="border border-border bg-background rounded-[2.5rem] p-10 hover:bg-hover transition-all duration-500 group">
+
+                            <div class="flex items-center justify-between mb-12">
+                                <span class="text-5xl font-serif text-secondary-text/20">
+                                    01
+                                </span>
+
+                                <div class="w-12 h-[1px] bg-border"></div>
+                            </div>
+
+                            <h4 class="text-2xl font-serif font-bold mb-4 text-primary-text">
+                                Isometric
                             </h4>
 
                             <p class="text-secondary-text leading-relaxed">
-                                Known globally for producing premium mineral specimens
-                                with exceptional transparency and crystal growth.
+                                Cubic formations displaying balanced geometric growth and
+                                sharp crystal edges.
                             </p>
                         </div>
 
-                        <div class="w-14 h-14 rounded-2xl bg-background border border-border flex items-center justify-center shrink-0">
-                            <i class="fas fa-mountain text-accent text-xl"></i>
-                        </div>
+                        <!-- Dark Accent Card -->
+                        <div class="bg-primary-text text-background rounded-[2.5rem] p-10 relative overflow-hidden">
 
-                    </div>
-                </div>
+                            <div class="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
 
-                <!-- Card -->
-                <div class="bg-background border border-border rounded-[2.5rem] p-8 md:p-10 hover:bg-hover transition-all duration-500">
-
-                    <div class="flex items-start justify-between gap-5">
-
-                        <div>
-                            <span class="text-accent text-xs uppercase tracking-[0.25em] font-bold">
-                                Authentication
+                            <span class="text-5xl font-serif text-secondary-text/20">
+                                02
                             </span>
 
-                            <h4 class="text-2xl font-serif font-bold text-primary-text mt-4 mb-4">
-                                Verified Specimens
+                            <h4 class="text-2xl font-serif font-bold mt-10 mb-4">
+                                Orthorhombic
                             </h4>
 
-                            <p class="text-secondary-text leading-relaxed">
-                                Each specimen undergoes careful geological inspection
-                                for authenticity, structure, and preservation quality.
+                            <p class="opacity-70 leading-relaxed mb-8">
+                                Angular mineral structures with distinctive axial dimensions
+                                prized by collectors.
                             </p>
-                        </div>
 
-                        <div class="w-14 h-14 rounded-2xl bg-hover border border-border flex items-center justify-center shrink-0">
-                            <i class="fas fa-certificate text-accent text-xl"></i>
+                            <div
+                                class="flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-bold text-accent">
+                                <div class="w-2 h-2 rounded-full bg-accent"></div>
+                                Rare Collector Grade
+                            </div>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- Stats -->
-                <div class="grid grid-cols-2 gap-5">
+            </div>
+        </section>
+        <!-- SECTION 5 : PREMIUM SPECIMEN SHOWCASE -->
+        <section class="py-24 bg-background overflow-hidden transition-colors duration-300">
+            <div class="container mx-auto px-6">
 
-                    <div class="bg-primary-text text-background rounded-[2rem] p-8">
-                        <div class="text-4xl font-bold mb-3">250+</div>
-                        <div class="uppercase tracking-[0.2em] text-xs opacity-70">
-                            Rare Specimens
+                <!-- Top Heading -->
+                <div class="max-w-3xl mb-16">
+                    <span class="text-accent uppercase tracking-[0.35em] text-xs font-bold">
+                        Featured Collection
+                    </span>
+
+                    <h2 class="mt-5 text-4xl md:text-6xl font-serif font-bold text-primary-text leading-tight">
+                        Rare Geological
+                        <span class="italic text-accent-light">Masterpieces</span>
+                    </h2>
+
+                    <p class="mt-6 text-secondary-text text-lg leading-relaxed">
+                        Discover museum-quality fossil and mineral specimens carefully selected
+                        for rarity, preservation, and scientific significance.
+                    </p>
+                </div>
+
+                <!-- Main Layout -->
+                <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+                    <!-- Left Image Card -->
+                    <div class="relative group overflow-hidden rounded-[3rem] border border-border">
+
+                        <img src="/assets/ul.jpg"
+                            class="w-full h-[500px] md:h-[650px] object-cover transition duration-1000 group-hover:scale-105">
+
+                        <!-- Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+                        <!-- Floating Info -->
+                        <div class="absolute bottom-0 left-0 p-8 md:p-12 text-white">
+
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="w-3 h-3 rounded-full bg-accent"></div>
+
+                                <span class="uppercase tracking-[0.25em] text-xs font-bold text-white/70">
+                                    Collector Grade
+                                </span>
+                            </div>
+
+                            <h3 class="text-3xl md:text-5xl font-serif font-bold leading-tight mb-5">
+                                Imperial Topaz
+                            </h3>
+
+                            <p class="text-white/70 leading-relaxed max-w-xl text-sm md:text-lg">
+                                Exceptionally preserved crystal formations sourced from rare
+                                geological regions with high natural clarity and structure.
+                            </p>
+
                         </div>
                     </div>
 
-                    <div class="bg-hover border border-border rounded-[2rem] p-8">
-                        <div class="text-4xl font-bold text-primary-text mb-3">
-                            100%
+                    <!-- Right Content -->
+                    <div class="space-y-6">
+
+                        <!-- Card -->
+                        <div
+                            class="bg-hover border border-border rounded-[2.5rem] p-8 md:p-10 hover:shadow-xl transition-all duration-500">
+
+                            <div class="flex items-start justify-between gap-5">
+
+                                <div>
+                                    <span class="text-accent text-xs uppercase tracking-[0.25em] font-bold">
+                                        Origin
+                                    </span>
+
+                                    <h4 class="text-2xl font-serif font-bold text-primary-text mt-4 mb-4">
+                                        Brazilian Highlands
+                                    </h4>
+
+                                    <p class="text-secondary-text leading-relaxed">
+                                        Known globally for producing premium mineral specimens
+                                        with exceptional transparency and crystal growth.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-background border border-border flex items-center justify-center shrink-0">
+                                    <i class="fas fa-mountain text-accent text-xl"></i>
+                                </div>
+
+                            </div>
                         </div>
 
-                        <div class="uppercase tracking-[0.2em] text-xs text-secondary-text">
-                            Natural Formation
+                        <!-- Card -->
+                        <div
+                            class="bg-background border border-border rounded-[2.5rem] p-8 md:p-10 hover:bg-hover transition-all duration-500">
+
+                            <div class="flex items-start justify-between gap-5">
+
+                                <div>
+                                    <span class="text-accent text-xs uppercase tracking-[0.25em] font-bold">
+                                        Authentication
+                                    </span>
+
+                                    <h4 class="text-2xl font-serif font-bold text-primary-text mt-4 mb-4">
+                                        Verified Specimens
+                                    </h4>
+
+                                    <p class="text-secondary-text leading-relaxed">
+                                        Each specimen undergoes careful geological inspection
+                                        for authenticity, structure, and preservation quality.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="w-14 h-14 rounded-2xl bg-hover border border-border flex items-center justify-center shrink-0">
+                                    <i class="fas fa-certificate text-accent text-xl"></i>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="grid grid-cols-2 gap-5">
+
+                            <div class="bg-primary-text text-background rounded-[2rem] p-8">
+                                <div class="text-4xl font-bold mb-3">250+</div>
+                                <div class="uppercase tracking-[0.2em] text-xs opacity-70">
+                                    Rare Specimens
+                                </div>
+                            </div>
+
+                            <div class="bg-hover border border-border rounded-[2rem] p-8">
+                                <div class="text-4xl font-bold text-primary-text mb-3">
+                                    100%
+                                </div>
+
+                                <div class="uppercase tracking-[0.2em] text-xs text-secondary-text">
+                                    Natural Formation
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 6: OPTICAL PROPERTIES (SPLIT DARK/LIGHT LAYOUT) -->
+        <section class="py-24 bg-background">
+            <div class="container mx-auto px-6">
+                <div
+                    class="flex flex-col lg:flex-row items-stretch border border-border rounded-[3rem] overflow-hidden shadow-xl">
+                    <div class="w-full lg:w-1/2 p-12 md:p-20 bg-hover">
+                        <h3 class="text-3xl font-serif font-bold text-primary-text mb-6">Visible <span
+                                class="text-accent italic">Spectrum</span></h3>
+                        <p class="text-secondary-text leading-relaxed mb-8">Under natural light, these minerals exhibit
+                            their primary color and transparency. We photograph every specimen in 5500K museum lighting
+                            to ensure the color you see is the color you receive.</p>
+                        <div class="w-full h-48 rounded-2xl overflow-hidden border border-border">
+                            <img src="/assets/po.jpg" class="w-full h-full object-cover">
                         </div>
                     </div>
-
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- SECTION 6: OPTICAL PROPERTIES (SPLIT DARK/LIGHT LAYOUT) -->
-<section class="py-24 bg-background">
-    <div class="container mx-auto px-6">
-        <div class="flex flex-col lg:flex-row items-stretch border border-border rounded-[3rem] overflow-hidden shadow-xl">
-            <div class="w-full lg:w-1/2 p-12 md:p-20 bg-hover">
-                <h3 class="text-3xl font-serif font-bold text-primary-text mb-6">Visible <span class="text-accent italic">Spectrum</span></h3>
-                <p class="text-secondary-text leading-relaxed mb-8">Under natural light, these minerals exhibit their primary color and transparency. We photograph every specimen in 5500K museum lighting to ensure the color you see is the color you receive.</p>
-                <div class="w-full h-48 rounded-2xl overflow-hidden border border-border">
-                    <img src="/assets/po.jpg" class="w-full h-full object-cover">
+                    <div class="w-full lg:w-1/2 p-12 md:p-20 bg-[#000] text-white">
+                        <h3 class="text-3xl font-serif font-bold text-accent mb-6">Short-Wave <span
+                                class="italic text-white">UV</span></h3>
+                        <p class="text-white/50 leading-relaxed mb-8">Some of our specimens, particularly Fluorites and
+                            Calcites, exhibit stunning fluorescence. We provide detailed reports on mineral reaction to
+                            long-wave and short-wave UV light.</p>
+                        <div class="w-full h-48 rounded-2xl overflow-hidden border border-white/10 grayscale">
+                            <img src="/assets/p2.jpg" class="w-full h-full object-cover opacity-60">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="w-full lg:w-1/2 p-12 md:p-20 bg-[#000] text-white">
-                <h3 class="text-3xl font-serif font-bold text-accent mb-6">Short-Wave <span class="italic text-white">UV</span></h3>
-                <p class="text-white/50 leading-relaxed mb-8">Some of our specimens, particularly Fluorites and Calcites, exhibit stunning fluorescence. We provide detailed reports on mineral reaction to long-wave and short-wave UV light.</p>
-                <div class="w-full h-48 rounded-2xl overflow-hidden border border-white/10 grayscale">
-                    <img src="/assets/p2.jpg" class="w-full h-full object-cover opacity-60">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-        </main>
+        </section>
+    </main>
 
     <div id="mobile-menu-drawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300">
-        <div id="drawer-backdrop" class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 pointer-events-none"></div>
-        <div id="drawer-content" class="absolute top-0 left-0 right-0 bg-background rounded-b-2xl shadow-2xl p-6 xl:hidden max-h-[85vh] overflow-y-auto transform translate-y-[-100%] transition-transform duration-300 ease-out">
+        <div id="drawer-backdrop"
+            class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+        <div id="drawer-content"
+            class="absolute top-0 left-0 right-0 bg-background rounded-b-2xl shadow-2xl p-6 xl:hidden max-h-[85vh] overflow-y-auto transform translate-y-[-100%] transition-transform duration-300 ease-out">
             <div class="flex justify-between items-center pb-4 border-b border-border">
                 <a href="index.html" class="text-2xl font-serif font-extrabold tracking-wide">
                     <span style="color: #E6B325;">Gemora</span>
                 </a>
-                <button id="mobile-menu-close" class="text-primary-text hover:text-accent"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+                <button id="mobile-menu-close" class="text-primary-text hover:text-accent"><svg class="w-6 h-6"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg></button>
             </div>
             <nav class="flex flex-col space-y-2 py-4">
                 <div>
-                    <button class="block text-primary-text font-semibold text-lg py-2 w-full text-left flex justify-between items-center" id="mobile-homes-toggle">
-                        Home <svg class="w-4 h-4 transform transition-transform duration-200 text-primary-text" id="homes-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <button
+                        class="block text-primary-text font-semibold text-lg py-2 w-full text-left flex justify-between items-center"
+                        id="mobile-homes-toggle">
+                        Home <svg class="w-4 h-4 transform transition-transform duration-200 text-primary-text"
+                            id="homes-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
                     </button>
-                    <div id="mobile-homes-menu" class="hidden pl-4 flex flex-col space-y-1 mt-1 border-l-2 border-border">
-                        <a href="index.html" class="block text-secondary-text hover:text-accent text-base py-1">Home 1</a>
-                        <a href="home2.html" class="block text-secondary-text hover:text-accent text-base py-1">Home 2</a>
+                    <div id="mobile-homes-menu"
+                        class="hidden pl-4 flex flex-col space-y-1 mt-1 border-l-2 border-border">
+                        <a href="index.html" class="block text-secondary-text hover:text-accent text-base py-1">Home
+                            1</a>
+                        <a href="home2.html" class="block text-secondary-text hover:text-accent text-base py-1">Home
+                            2</a>
                     </div>
                 </div>
-<a href="about.html" class="block text-primary-text font-semibold text-lg py-2">About Us</a>
-<a href="specimens.html" class="block text-primary-text font-semibold text-lg py-2">Specimens</a>
-<a href="fossils.html" class="block text-primary-text font-semibold text-lg py-2">Fossils</a>
-<a href="minerals.html" class="block text-primary-text font-semibold text-lg py-2">Minerals</a>
-<a href="collections.html" class="block text-primary-text font-semibold text-lg py-2">Collections</a>
-<a href="contact.html" class="block text-primary-text font-semibold text-lg py-2">Contact</a>
-<!-- Dashboard Dropdown -->
-<div>
-    <button class="block text-primary-text font-semibold text-lg py-2 w-full text-left flex justify-between items-center" id="mobile-dashboard-toggle">
-        Dashboard
-        <svg class="w-4 h-4 transform transition-transform duration-200" id="dashboard-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-    </button>
+                <a href="about.html" class="block text-primary-text font-semibold text-lg py-2">About Us</a>
+                <a href="specimens.html" class="block text-primary-text font-semibold text-lg py-2">Specimens</a>
+                <a href="fossils.html" class="block text-primary-text font-semibold text-lg py-2">Fossils</a>
+                <a href="minerals.html" class="block text-primary-text font-semibold text-lg py-2">Minerals</a>
+                <a href="collections.html" class="block text-primary-text font-semibold text-lg py-2">Collections</a>
+                <a href="contact.html" class="block text-primary-text font-semibold text-lg py-2">Contact</a>
+                <!-- Dashboard Dropdown -->
+                <div>
+                    <button
+                        class="block text-primary-text font-semibold text-lg py-2 w-full text-left flex justify-between items-center"
+                        id="mobile-dashboard-toggle">
+                        Dashboard
+                        <svg class="w-4 h-4 transform transition-transform duration-200" id="dashboard-icon" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
 
-    <div id="mobile-dashboard-menu" class="hidden pl-4 flex flex-col space-y-1 mt-1 border-l-2 border-border">
-        <a href="admin.html" class="block text-secondary-text hover:text-accent text-base py-1">Admin Dashboard</a>
-        <a href="userdash.html" class="block text-secondary-text hover:text-accent text-base py-1">User Dashboard</a>
-    </div>
-</div>
+                    <div id="mobile-dashboard-menu"
+                        class="hidden pl-4 flex flex-col space-y-1 mt-1 border-l-2 border-border">
+                        <a href="admin.html" class="block text-secondary-text hover:text-accent text-base py-1">Admin
+                            Dashboard</a>
+                        <a href="userdash.html" class="block text-secondary-text hover:text-accent text-base py-1">User
+                            Dashboard</a>
+                    </div>
+                </div>
             </nav>
             <div class="pt-4 border-t border-border mt-4 flex justify-around items-center">
-                <button id="mobile-lang-icon-drawer" class="flex flex-col items-center"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-</svg><span class="text-xs mt-1 text-secondary-text">RTL</span></button>
+                <button id="mobile-lang-icon-drawer" class="flex flex-col items-center"><svg class="w-6 h-6" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                    </svg><span class="text-xs mt-1 text-secondary-text">RTL</span></button>
                 <button id="drawer-theme-toggle" class="flex flex-col items-center">
-                    <svg class="w-6 h-6 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                    <svg class="w-6 h-6 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-6 h-6 light-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="w-6 h-6 dark-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
                     <span class="text-xs mt-1 text-secondary-text">Theme</span>
                 </button>
             </div>
             <div class="flex mt-5 gap-5 w-full">
-                <a href="login.html" class="flex-1 book-btn text-center py-2 rounded-xl font-bold text-sm shadow-md">Login</a>
-                <a href="signup.html" class="flex-1 book-btn text-center py-2 rounded-xl font-bold text-sm shadow-md">Sign Up</a>
+                <a href="login.html"
+                    class="flex-1 btn-outline text-center py-1.5 rounded-xl font-bold text-sm shadow-md">Login</a>
+                <a href="signup.html"
+                    class="flex-1 book-btn text-center py-2 rounded-xl font-bold text-sm shadow-md">Sign Up</a>
             </div>
         </div>
     </div>
@@ -668,21 +830,26 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-gray-800">
                 <div class="lg:col-span-2">
                     <h1 class="text-3xl font-serif font-black" style="color:#E6B325">Gemora</h1>
-<p class="text-lg leading-relaxed max-w-sm !text-white-400">
-Providing authentic fossil and mineral specimens with premium quality and rare geological treasures for collectors and enthusiasts.</p>                    <div class="flex gap-6 mt-10">
-                        <a href="#" class="text-white hover:text-accent transition text-xl"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white hover:text-accent transition text-xl"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white hover:text-accent transition text-xl"><i class="fab fa-whatsapp"></i></a>
+                    <p class="text-lg leading-relaxed max-w-sm !text-white-400">
+                        Providing authentic fossil and mineral specimens with premium quality and rare geological
+                        treasures for collectors and enthusiasts.</p>
+                    <div class="flex gap-6 mt-10">
+                        <a href="#" class="text-white hover:text-accent transition text-xl"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition text-xl"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition text-xl"><i
+                                class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div>
                     <h4 class="footer-heading font-bold text-xl mb-6">Specimen Categories</h4>
-                   <ul class="space-y-4">
-    <li><a href="specimens.html" class="footer-link">Rare Specimens</a></li>
-    <li><a href="fossils.html" class="footer-link">Ancient Fossils</a></li>
-    <li><a href="minerals.html" class="footer-link">Crystal Minerals</a></li>
-    <li><a href="collections.html" class="footer-link">Curated Collections</a></li>
-</ul>
+                    <ul class="space-y-4">
+                        <li><a href="specimens.html" class="footer-link">Rare Specimens</a></li>
+                        <li><a href="fossils.html" class="footer-link">Ancient Fossils</a></li>
+                        <li><a href="minerals.html" class="footer-link">Crystal Minerals</a></li>
+                        <li><a href="collections.html" class="footer-link">Curated Collections</a></li>
+                    </ul>
                 </div>
                 <div>
                     <h4 class="footer-heading font-bold text-xl mb-6">Quick Links</h4>
@@ -697,7 +864,8 @@ Providing authentic fossil and mineral specimens with premium quality and rare g
                 <div>
                     <h4 class="footer-heading font-bold text-xl mb-6">Newsletter</h4>
                     <div class="flex flex-col space-y-4">
-                        <input type="email" placeholder="Email address" class="p-4 text-sm rounded-xl bg-gray-900 border border-gray-800 focus:outline-none text-white" />
+                        <input type="email" placeholder="Email address"
+                            class="p-4 text-sm rounded-xl bg-gray-900 border border-gray-800 focus:outline-none text-white" />
                         <button class="btn-primary font-bold py-3 rounded-xl">Subscribe</button>
                     </div>
                 </div>
@@ -770,7 +938,7 @@ Providing authentic fossil and mineral specimens with premium quality and rare g
             // Active Nav Logic
             const setActiveNavLink = () => {
                 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-                
+
                 // Desktop Links
                 document.querySelectorAll('.nav-link').forEach(link => {
                     if (link.getAttribute('href') === currentPath) {
@@ -817,47 +985,48 @@ Providing authentic fossil and mineral specimens with premium quality and rare g
         });
         document.addEventListener("DOMContentLoaded", function () {
 
-    const btnMonthly = document.getElementById("btn-monthly");
-    const btnSeasonal = document.getElementById("btn-seasonal");
+            const btnMonthly = document.getElementById("btn-monthly");
+            const btnSeasonal = document.getElementById("btn-seasonal");
 
-    const monthlyPlans = document.getElementById("monthly-plans");
-    const seasonalPlans = document.getElementById("seasonal-plans");
+            const monthlyPlans = document.getElementById("monthly-plans");
+            const seasonalPlans = document.getElementById("seasonal-plans");
 
-    if (!btnMonthly || !btnSeasonal || !monthlyPlans || !seasonalPlans) return;
+            if (!btnMonthly || !btnSeasonal || !monthlyPlans || !seasonalPlans) return;
 
-    btnMonthly.addEventListener("click", function () {
+            btnMonthly.addEventListener("click", function () {
 
-        btnMonthly.classList.add("bg-[#E6B325]", "text-white", "shadow-lg");
-        btnMonthly.classList.remove("text-primary-text");
+                btnMonthly.classList.add("bg-[#E6B325]", "text-white", "shadow-lg");
+                btnMonthly.classList.remove("text-primary-text");
 
-        btnSeasonal.classList.remove("bg-[#E6B325]", "text-white", "shadow-lg");
-        btnSeasonal.classList.add("text-primary-text");
+                btnSeasonal.classList.remove("bg-[#E6B325]", "text-white", "shadow-lg");
+                btnSeasonal.classList.add("text-primary-text");
 
-        monthlyPlans.classList.remove("hidden");
-        monthlyPlans.classList.add("grid");
+                monthlyPlans.classList.remove("hidden");
+                monthlyPlans.classList.add("grid");
 
-        seasonalPlans.classList.remove("grid");
-        seasonalPlans.classList.add("hidden");
+                seasonalPlans.classList.remove("grid");
+                seasonalPlans.classList.add("hidden");
 
-    });
+            });
 
-    btnSeasonal.addEventListener("click", function () {
+            btnSeasonal.addEventListener("click", function () {
 
-        btnSeasonal.classList.add("bg-[#E6B325]", "text-white", "shadow-lg");
-        btnSeasonal.classList.remove("text-primary-text");
+                btnSeasonal.classList.add("bg-[#E6B325]", "text-white", "shadow-lg");
+                btnSeasonal.classList.remove("text-primary-text");
 
-        btnMonthly.classList.remove("bg-[#E6B325]", "text-white", "shadow-lg");
-        btnMonthly.classList.add("text-primary-text");
+                btnMonthly.classList.remove("bg-[#E6B325]", "text-white", "shadow-lg");
+                btnMonthly.classList.add("text-primary-text");
 
-        seasonalPlans.classList.remove("hidden");
-        seasonalPlans.classList.add("grid");
+                seasonalPlans.classList.remove("hidden");
+                seasonalPlans.classList.add("grid");
 
-        monthlyPlans.classList.remove("grid");
-        monthlyPlans.classList.add("hidden");
+                monthlyPlans.classList.remove("grid");
+                monthlyPlans.classList.add("hidden");
 
-    });
+            });
 
-});
+        });
     </script>
 </body>
+
 </html>

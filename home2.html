@@ -235,6 +235,21 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
+
+        .btn-gallery-cta {
+            background-color: #FFFFFF !important;
+            color: #5C4033 !important;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-gallery-cta:hover {
+            background-color: #E6B325 !important;
+            color: #5C4033 !important;
+            box-shadow: 0 6px 20px rgba(230, 179, 37, 0.4);
+            transform: translateY(-2px);
+        }
+
         body {
     overflow-x: hidden;
 }
@@ -318,7 +333,7 @@
                                 d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                         </svg> </button>
                     <div class="flex items-center gap-3 ml-3">
-                        <a href="login.html" class="book-btn px-6 py-2.5 rounded-xl font-bold shadow-md">Login</a>
+                        <a href="login.html" class="btn-outline px-6 py-2 rounded-xl font-bold shadow-md">Login</a>
                         <a href="signup.html" class="book-btn px-6 py-2.5 rounded-xl font-bold shadow-md">Sign Up</a>
                     </div>
                 </div>
@@ -389,7 +404,7 @@
                 </a>
 
                 <a href="#"
-                    class="w-full sm:w-auto px-10 py-4 rounded-2xl font-bold text-lg border border-white/20 text-white backdrop-blur-sm bg-white/5 hover:bg-white hover:text-[#5C4033] transition-all duration-300">
+                    class="w-full sm:w-auto px-10 py-4 rounded-2xl font-bold text-lg border border-white/20 text-white backdrop-blur-sm bg-white/5 hover:bg-[#E6B325] hover:text-[#5C4033] hover:border-[#E6B325] transition-all duration-300">
                     Inquire for Sourcing
                 </a>
 
@@ -486,7 +501,6 @@
                                 <h5 class="font-bold text-lg text-[#1f1f1f] mb-2">
                                     Certified Quality
                                 </h5>
-
                                 <p class="text-sm text-gray-500 leading-relaxed">
                                     Verified provenance and museum-grade preservation standards.
                                 </p>
@@ -532,10 +546,15 @@
         <section class="py-24 bg-background overflow-hidden">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-20">
-                    <h2 class="text-4xl font-serif font-bold mb-6 text-primary-text">Ethical Sourcing Protocol</h2>
-                    <div class="w-20 h-1 bg-accent mx-auto mb-6"></div>
-                    <p class="text-secondary-text">From geological scouting to final curation, we adhere to the highest
-                        standards of specimen preservation.</p>
+                    <span class="text-accent uppercase tracking-[0.35em] text-xs font-bold block mb-4">
+                        Methodology
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-primary-text leading-tight">
+                        Ethical Sourcing <span class="italic text-accent">Protocol</span>
+                    </h2>
+                    <p class="text-secondary-text text-lg leading-relaxed max-w-2xl mx-auto">
+                        From geological scouting to final curation, we adhere to the highest standards of specimen preservation.
+                    </p>
                 </div>
                 <div class="flex flex-col md:flex-row justify-center items-start gap-12 lg:gap-20 relative">
                     <div class="hidden md:block absolute top-24 left-1/4 right-1/4 h-px bg-border -z-10"></div>
@@ -605,7 +624,7 @@
                             </div>
                         </div>
                         <button
-                            class="mt-12 px-10 py-4 bg-white text-[#5C4033] font-bold rounded-xl hover:bg-accent hover:text-white transition-all shadow-xl">Request
+                            class="mt-12 px-10 py-4 btn-gallery-cta font-bold rounded-xl shadow-xl">Request
                             Designer Catalog</button>
                     </div>
                     <div class="w-full lg:w-1/2 flex flex-col sm:flex-row gap-6 relative z-10">
@@ -623,53 +642,65 @@
             </div>
         </section>
 
-        <section class="py-24 bg-background">
-            <div class="container mx-auto px-6 lg:px-20">
-                <div class="flex flex-col lg:flex-row gap-16 lg:items-center">
-                    <div class="w-full lg:w-1/2">
-                        <h3 class="text-xs font-bold uppercase tracking-[0.4em] text-accent mb-10">Institutional
-                            Partners</h3>
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 opacity-40 grayscale mb-12">
-                            <div class="flex flex-col items-center gap-2">
-                                <i class="fas fa-university text-4xl text-primary-text"></i>
-                                <span class="text-[10px] font-bold text-primary-text">YALE GEOLOGY</span>
-                            </div>
-                            <div class="flex flex-col items-center gap-2">
-                                <i class="fas fa-landmark text-4xl text-primary-text"></i>
-                                <span class="text-[10px] font-bold text-primary-text">THE LOUVRE</span>
-                            </div>
-                            <div class="flex flex-col items-center gap-2">
-                                <i class="fas fa-microscope text-4xl text-primary-text"></i>
-                                <span class="text-[10px] font-bold text-primary-text">SMITHSONIAN</span>
-                            </div>
-                        </div>
-                        <blockquote
-                            class="p-8 border-l-4 border-accent bg-hover rounded-r-3xl italic text-secondary-text">
-                            "Gemora provides our department with rare, high-locality specimens that meet the most
-                            rigorous scientific standards for provenance and data accuracy."
-                            <cite class="block mt-4 not-italic font-bold text-primary-text">— Global Geological
-                                Society</cite>
-                        </blockquote>
-                    </div>
-                    <div class="w-full lg:w-1/2">
-                        <div
-                            class="p-10 md:p-14 rounded-[3rem] bg-[#5C4033] text-white shadow-2xl relative overflow-hidden">
-                            <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl"></div>
-                            <h3 class="text-3xl font-serif font-bold mb-4">Join the Inner Circle</h3>
-                            <p class="text-gray-400 mb-8">Get first-look access to private mine discoveries before
-                                public listing.</p>
-                            <form class="space-y-4" onsubmit="event.preventDefault();">
-                                <input type="email" placeholder="Professional Email Address"
-                                    class="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 outline-none focus:border-accent transition-colors">
-                                <button
-                                    class="w-full py-4 bg-white text-[#5C4033] font-bold rounded-xl hover:bg-white transition-all shadow-xl">Subscribe
-                                    to The Ledger</button>
-                            </form>
-                            <p class="text-[10px] text-white-500 mt-6 text-center italic">By joining, you agree to our
-                                Collector's Data Privacy Policy.</p>
-                        </div>
+        <!-- SECTION: FEATURED SPECIMEN SHOWCASE (FULL BACKGROUND IMAGE) -->
+        <section class="relative py-36 overflow-hidden min-h-[650px] flex items-center bg-[#5C4033]">
+            <!-- Full Background Image -->
+            <img 
+                src="/assets/df.jpeg" 
+                alt="Featured Fossil" 
+                class="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none select-none"
+            >
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent"></div>
+
+            <!-- Content -->
+            <div class="container mx-auto px-6 lg:px-20 relative z-10 text-white">
+                <div class="max-w-2xl">
+                    <span class="text-accent uppercase tracking-[0.35em] text-xs font-bold block mb-4">
+                        Featured Masterpiece
+                    </span>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight">
+                        The Hell Creek <br>
+                        <span class="italic text-accent">Triceratops Prorsus</span>
+                    </h2>
+                    <p class="text-white/80 text-lg leading-relaxed mb-10 max-w-xl">
+                        An exceptionally preserved, museum-grade fossil skull recovered from the Hell Creek Formation, Montana. Featuring pristine brow horns and 82% skeletal completeness.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="specimens.html" class="btn-primary px-8 py-4 rounded-xl font-bold text-center">
+                            Acquisition Details
+                        </a>
+                        <a href="partners.html" class="btn-outline px-8 py-4 rounded-xl font-bold text-center border-white/20 text-white hover:bg-white hover:text-[#5C4033] hover:border-white">
+                            Institutional Partners
+                        </a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- SECTION: NEWSLETTER SIGNUP -->
+        <section class="py-24 bg-hover/20 border-t border-border">
+            <div class="container mx-auto px-6 max-w-4xl text-center">
+                <span class="text-accent uppercase tracking-[0.3em] text-xs font-bold block mb-4">
+                    Exclusive Access
+                </span>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-primary-text mb-4">
+                    Join the Inner Circle
+                </h3>
+                <p class="text-secondary-text text-base md:text-lg mb-8 max-w-xl mx-auto">
+                    Get first-look access to private mine discoveries and newly cataloged fossils before they are made public.
+                </p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Professional Email Address"
+                        class="flex-grow px-6 py-4 rounded-xl bg-background border border-border outline-none focus:border-accent transition-colors text-primary-text">
+                    <button
+                        class="px-8 py-4 bg-[#5C4033] hover:bg-accent text-white hover:text-[#5C4033] font-bold rounded-xl transition-all shadow-lg">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-[10px] text-secondary-text mt-4 italic">
+                    By joining, you agree to our Collector's Data Privacy Policy.
+                </p>
             </div>
         </section>
         </section>
@@ -757,7 +788,7 @@
             </div>
             <div class="flex mt-5 gap-5 w-full">
                 <a href="login.html"
-                    class="flex-1 book-btn text-center py-2 rounded-xl font-bold text-sm shadow-md">Login</a>
+                    class="flex-1 btn-outline text-center py-1.5 rounded-xl font-bold text-sm shadow-md">Login</a>
                 <a href="signup.html"
                     class="flex-1 book-btn text-center py-2 rounded-xl font-bold text-sm shadow-md">Sign Up</a>
             </div>
@@ -793,7 +824,7 @@
                 <div>
                     <h4 class="footer-heading font-bold text-xl mb-6">Quick Links</h4>
                     <ul class="space-y-4">
-                        <li><a href="booking.html" class="footer-link">Book Now</a></li>
+                        <li><a href="partners.html" class="footer-link">Partners</a></li>
                         <li><a href="about.html" class="footer-link">About Us</a></li>
                         <li><a href="specimens.html" class="footer-link">Specimens</a></li>
                         <li><a href="fossils.html" class="footer-link">Fossils</a></li>
