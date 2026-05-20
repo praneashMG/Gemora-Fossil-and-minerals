@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,8 @@
     <script src="tailwind.js"></script>
     <style>
         /* --- Premium Green & Rich Brown Palette (matching index.html) --- */
-        :root, html[data-theme='light'] {
+        :root,
+        html[data-theme='light'] {
             --color-background: #FFFFFF;
             --color-primary-text: #5C4033;
             --color-secondary-text: #5C4033;
@@ -27,6 +29,7 @@
             --color-warning: #E6B325;
             --color-danger: #C84B31;
         }
+
         html[data-theme='dark'] {
             --color-background: #000000;
             --color-primary-text: #FFFFFF;
@@ -50,14 +53,49 @@
             overflow-x: hidden;
         }
 
+        /* ── Typography Weight System ── */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 500 !important;
+        }
+
+        p,
+        .text-secondary-text {
+            font-weight: 400 !important;
+        }
+
         /* Utility Classes */
-        .text-accent { color: var(--color-accent); }
-        .text-accent-light { color: var(--color-accent-light); }
-        .bg-background { background-color: var(--color-background); }
-        .bg-hover { background-color: var(--color-hover); }
-        .border-border { border-color: var(--color-border); }
-        .card-bg { background-color: var(--color-card-bg); }
-        .bg-sidebar { background-color: var(--color-sidebar-bg); }
+        .text-accent {
+            color: var(--color-accent);
+        }
+
+        .text-accent-light {
+            color: var(--color-accent-light);
+        }
+
+        .bg-background {
+            background-color: var(--color-background);
+        }
+
+        .bg-hover {
+            background-color: var(--color-hover);
+        }
+
+        .border-border {
+            border-color: var(--color-border);
+        }
+
+        .card-bg {
+            background-color: var(--color-card-bg);
+        }
+
+        .bg-sidebar {
+            background-color: var(--color-sidebar-bg);
+        }
 
         /* Dashboard Cards - Gemora Elegance */
         .dashboard-card {
@@ -65,11 +103,12 @@
             border: 1px solid var(--color-border);
             border-radius: 1.5rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px -8px rgba(230,179,37,0.08);
+            box-shadow: 0 8px 20px -8px rgba(230, 179, 37, 0.08);
         }
+
         .dashboard-card:hover {
             border-color: var(--color-accent);
-            box-shadow: 0 12px 28px -12px rgba(230,179,37,0.2);
+            box-shadow: 0 12px 28px -12px rgba(230, 179, 37, 0.2);
         }
 
         /* Sidebar Navigation - Gemora style */
@@ -85,22 +124,50 @@
             margin-bottom: 0.25rem;
             cursor: pointer;
         }
-        .sidebar-link:hover, .sidebar-link.active {
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
             background: linear-gradient(135deg, #E6B325 0%, #5C4033 100%);
             color: white;
         }
-        .sidebar-link:hover svg, .sidebar-link.active svg {
+
+        .sidebar-link:hover svg,
+        .sidebar-link.active svg {
             stroke: white;
             color: white;
         }
 
         /* Status Badges - Brewery toned */
-        .badge-success { background: rgba(230,179,37,0.12); color: #2B7A4B; font-weight: 600; }
-        .badge-warning { background: rgba(230,179,37,0.15); color: #B8860B; font-weight: 600; }
-        .badge-danger { background: rgba(200,75,49,0.12); color: #C84B31; font-weight: 600; }
-        html[data-theme='dark'] .badge-success { color: #6FBF4C; background: rgba(111,191,76,0.15); }
-        html[data-theme='dark'] .badge-warning { color: #E6B325; }
-        html[data-theme='dark'] .badge-danger { color: #E6775E; }
+        .badge-success {
+            background: rgba(230, 179, 37, 0.12);
+            color: #2B7A4B;
+            font-weight: 600;
+        }
+
+        .badge-warning {
+            background: rgba(230, 179, 37, 0.15);
+            color: #B8860B;
+            font-weight: 600;
+        }
+
+        .badge-danger {
+            background: rgba(200, 75, 49, 0.12);
+            color: #C84B31;
+            font-weight: 600;
+        }
+
+        html[data-theme='dark'] .badge-success {
+            color: #6FBF4C;
+            background: rgba(111, 191, 76, 0.15);
+        }
+
+        html[data-theme='dark'] .badge-warning {
+            color: #E6B325;
+        }
+
+        html[data-theme='dark'] .badge-danger {
+            color: #E6775E;
+        }
 
         /* Brewery gradient accent */
         .bg-brew-gradient {
@@ -113,15 +180,16 @@
             transition: all 0.3s ease;
             font-weight: 600;
         }
+
         .btn-accent:hover {
             opacity: 0.9;
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(230,179,37,0.3);
+            box-shadow: 0 4px 12px rgba(230, 179, 37, 0.3);
         }
 
         /* Mobile Overlay */
         #mobile-overlay {
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
             opacity: 0;
             pointer-events: none;
@@ -130,27 +198,35 @@
             inset: 0;
             z-index: 55;
         }
+
         #mobile-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
 
         /* RTL Support */
-        html[dir="rtl"] .sidebar-link { flex-direction: row-reverse; }
-        html[dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
+        html[dir="rtl"] .sidebar-link {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .ml-auto {
+            margin-right: auto;
+            margin-left: 0;
+        }
     </style>
 </head>
+
 <body class="antialiased bg-background">
 
     <!-- TOP NAVIGATION BAR (Gemora branding) -->
-    <header class="sticky top-0 z-50 bg-background border-b border-border">
-        <div class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div class="flex items-center justify-between">
+    <header class="fixed top-0 inset-x-0 z-50 bg-background border-b border-border h-[73px]">
+        <div class="px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
                 <!-- Left: Logo & Mobile Menu -->
                 <div class="flex items-center gap-4">
                     <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl hover:bg-hover transition">
                         <svg class="w-6 h-6 text-primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
                     <a href="index.html" class="text-2xl md:text-3xl font-serif font-extrabold tracking-tight">
@@ -167,22 +243,28 @@
 
                     <button id="lang-toggle" class="p-2 rounded-full hover:bg-hover transition">
                         <svg class="w-5 h-5 text-primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-width="2" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                            <path stroke-linecap="round" stroke-width="2"
+                                d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                         </svg>
                     </button>
 
                     <button id="theme-toggle" class="p-2 rounded-full hover:bg-hover transition">
-                        <svg class="w-5 h-5 light-icon text-primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        <svg class="w-5 h-5 light-icon text-primary-text" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
-                        <svg class="w-5 h-5 dark-icon hidden text-primary-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        <svg class="w-5 h-5 dark-icon hidden text-primary-text" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                         </svg>
                     </button>
 
                     <!-- Admin Profile -->
                     <div class="flex items-center gap-2 pl-3 border-l border-border">
-                        <div class="w-9 h-9 rounded-full bg-brew-gradient flex items-center justify-center text-white font-bold">
+                        <div
+                            class="w-9 h-9 rounded-full bg-brew-gradient flex items-center justify-center text-white font-bold">
                             MB
                         </div>
                         <div class="hidden sm:block">
@@ -199,90 +281,90 @@
     <div id="mobile-overlay" class="lg:hidden"></div>
 
     <!-- MAIN DASHBOARD LAYOUT -->
-    <main class="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div class="flex flex-col lg:flex-row gap-6">
+    <div class="flex min-h-screen pt-[73px]">
 
-            <!-- SIDEBAR (Club Management) -->
-            <aside id="sidebar" class="fixed lg:sticky top-0 lg:top-24 left-0 h-full lg:h-fit w-80 z-[60] lg:z-10 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 bg-sidebar lg:bg-transparent">
-                <div class="dashboard-card p-5 h-full lg:h-auto overflow-y-auto">
+            <!-- SIDEBAR -->
+            <aside id="sidebar"
+                class="fixed top-0 lg:top-[73px] left-0 w-72 lg:w-64 h-full lg:h-[calc(100vh-73px)] z-[60] transform -translate-x-full lg:translate-x-0 transition-transform duration-300 bg-background border-r border-border overflow-y-auto shrink-0">
+                <div class="p-5">
                     <div class="flex lg:hidden justify-between items-center mb-6">
                         <span class="font-bold text-accent">Guild Menu</span>
                         <button id="close-sidebar" class="p-2 hover:bg-hover rounded-lg">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
                     </div>
 
-                    <div class="flex items-center gap-3 pb-5 mb-4 border-b border-border">
-                        <div class="w-12 h-12 rounded-full bg-brew-gradient flex items-center justify-center text-white font-bold text-xl">
-                            GC
-                        </div>
-                        <div>
-                            <p class="font-serif font-bold">Gemora Cellar</p>
-                            <p class="text-xs text-secondary-text">brewmaster@gemoraguild.com</p>
-                        </div>
-                    </div>
-
                     <nav class="flex flex-col gap-1">
-                        <p class="text-xs uppercase tracking-wider text-secondary-text font-bold px-3 mb-2">Fermentation Hub</p>
-                        
+                        <p class="text-xs uppercase tracking-wider text-secondary-text font-bold px-3 mb-2">Vault Management</p>
+
                         <a href="#" data-section="overview" class="sidebar-link active">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M6 14h6m-6 4h12M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 10h18M6 14h6m-6 4h12M5 4h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" />
                             </svg>
-                            <span>Brew Overview / Stats</span>
+                            <span>Vault Overview / Stats</span>
                         </a>
 
                         <a href="#" data-section="users" class="sidebar-link">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg>
                             <span>Club Members</span>
                         </a>
 
                         <a href="#" data-section="shipments" class="sidebar-link">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5-5 5-5" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 20l-5-5 5-5" />
                             </svg>
-                            <span>Quarterly Shipments</span>
-                            <span class="ml-auto bg-accent text-white text-xs px-2 py-0.5 rounded-full">Q2</span>
+                            <span>Client Shipments</span>
+                            <span class="ml-auto bg-accent text-white text-xs px-2 py-0.5 rounded-full">12</span>
                         </a>
 
-                        <a href="#" data-section="tasting-notes" class="sidebar-link">
+                        <a href="#" data-section="inventory" class="sidebar-link">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
-                            <span>Tasting Notes Library</span>
+                            <span>Specimen Inventory</span>
                         </a>
 
-                        <a href="#" data-section="pairings" class="sidebar-link">
+                        <a href="#" data-section="orders" class="sidebar-link">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                             </svg>
-                            <span>Food Pairing Guides</span>
+                            <span>Sales & Orders</span>
                         </a>
 
                         <a href="#" data-section="tours" class="sidebar-link">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5a2.5 2.5 0 002.5-2.5V3.935M8 20h8" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5a2.5 2.5 0 002.5-2.5V3.935M8 20h8" />
                             </svg>
-                            <span>Brewery Tours & Bookings</span>
+                            <span>Private Viewings</span>
                             <span class="ml-auto bg-accent-light/20 text-accent text-xs px-2 rounded-full">New</span>
                         </a>
 
                         <a href="#" data-section="settings" class="sidebar-link">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                             <span>Subscription Config</span>
                         </a>
 
-                        <a href="#" id="logoutBtn" class="sidebar-link mt-4 border-t border-border pt-3 text-red-600 hover:text-white hover:bg-red-600 !py-2 !px-3 gap-2">
+                        <a href="#" id="logoutBtn"
+                            class="sidebar-link mt-4 border-t border-border pt-3 text-red-600 hover:text-white hover:bg-red-600 !py-2 !px-3 gap-2">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
                             </svg>
                             <span class="font-medium">Logout</span>
                         </a>
@@ -291,55 +373,55 @@
             </aside>
 
             <!-- MAIN CONTENT AREA -->
-            <div class="flex-1 min-w-0 space-y-6">
+            <main class="flex-1 min-w-0 space-y-6 lg:ml-64 px-4 sm:px-6 lg:px-8 py-6">
 
-                <!-- OVERVIEW / STATISTICS SECTION (Brewery KPIs) -->
+                <!-- OVERVIEW / STATISTICS SECTION -->
                 <div id="overview" class="admin-section">
                     <div class="mb-8">
-                        <h1 class="text-3xl font-serif font-bold text-primary-text">Welcome back, Master Brewer!</h1>
-                        <p class="text-secondary-text mt-1">System status is normal. 12 orders pending dispatch.</p>
+                        <h1 class="text-3xl font-serif font-bold text-primary-text">Welcome back, Curator!</h1>
+                        <p class="text-secondary-text mt-1">System status is normal. 12 high-value specimens pending dispatch.</p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
                         <div class="dashboard-card p-6">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-secondary-text text-sm">Active Subscribers</p>
+                                    <p class="text-secondary-text text-sm">VIP Collectors</p>
                                     <p class="text-3xl font-black mt-1">1,284</p>
                                     <p class="text-xs text-emerald-600 mt-2">↑ 12% from last quarter</p>
                                 </div>
                                 <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center text-accent">
-                                    <i class="fa-solid fa-mug-saucer text-2xl"></i>
+                                    <i class="fa-solid fa-users text-2xl"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="dashboard-card p-6">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-secondary-text text-sm">Q2 Shipments Sent</p>
+                                    <p class="text-secondary-text text-sm">Secured Shipments</p>
                                     <p class="text-3xl font-black mt-1">1,052</p>
                                     <p class="text-xs text-emerald-600 mt-2">98% delivery success</p>
                                 </div>
                                 <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center text-accent">
-                                    <i class="fa-solid fa-boxes-packing text-2xl"></i>
+                                    <i class="fa-solid fa-shield-halved text-2xl"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="dashboard-card p-6">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-secondary-text text-sm">Tasting Notes Published</p>
+                                    <p class="text-secondary-text text-sm">Specimens Acquired</p>
                                     <p class="text-3xl font-black mt-1">43</p>
-                                    <p class="text-xs text-emerald-600 mt-2">+8 new seasonal ales</p>
+                                    <p class="text-xs text-emerald-600 mt-2">+8 rare dinosaur fossils</p>
                                 </div>
                                 <div class="w-12 h-12 bg-accent/10 rounded-2xl flex items-center justify-center text-accent">
-                                    <i class="fa-solid fa-pen-nib text-2xl"></i>
+                                    <i class="fa-solid fa-gem text-2xl"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="dashboard-card p-6">
                             <div class="flex items-center justify-between">
                                 <div>
-                                    <p class="text-secondary-text text-sm">Brewery Tours Booked</p>
+                                    <p class="text-secondary-text text-sm">Gallery Viewings</p>
                                     <p class="text-3xl font-black mt-1">156</p>
                                     <p class="text-xs text-amber-600 mt-2">↑ 34% (May peak)</p>
                                 </div>
@@ -350,14 +432,14 @@
                         </div>
                     </div>
 
-                    <!-- Charts Row: Seasonal Release Trends & Pairing Guide Hits -->
+                    <!-- Charts Row -->
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
                         <div class="dashboard-card p-6 reveal">
-                            <h3 class="font-bold text-lg mb-4">Quarterly Shipment Volume</h3>
+                            <h3 class="font-bold text-lg mb-4">Quarterly Sales Volume</h3>
                             <canvas id="shipmentChart" height="200"></canvas>
                         </div>
                         <div class="dashboard-card p-6 reveal">
-                            <h3 class="font-bold text-lg mb-4">Top Food Pairing Accesses</h3>
+                            <h3 class="font-bold text-lg mb-4">Top Specimen Categories</h3>
                             <canvas id="pairingChart" height="200"></canvas>
                         </div>
                     </div>
@@ -365,18 +447,42 @@
                     <!-- Recent Club Member Activity -->
                     <div class="dashboard-card p-6 mt-6 reveal">
                         <div class="flex justify-between items-center mb-6">
-                            <h3 class="font-bold text-lg">Recent Members & Subscription Upgrades</h3>
+                            <h3 class="font-bold text-lg">Recent Collectors & Acquisitions</h3>
                             <button class="text-accent text-sm font-bold hover:underline">View All</button>
                         </div>
                         <div class="overflow-x-auto">
-                            <table class="w-full text-sm">
+                            <table class="w-full text-sm text-left">
                                 <thead class="border-b border-border text-secondary-text text-xs uppercase tracking-wider">
-                                    <tr><th class="pb-3 text-left">Member</th><th class="pb-3 text-left">Tier</th><th class="pb-3 text-left">Last Shipment</th><th class="pb-3 text-left">Tasting Notes Saved</th><th class="pb-3 text-left">Status</th></tr>
+                                    <tr>
+                                        <th class="pb-3">Collector Name</th>
+                                        <th class="pb-3">VIP Tier</th>
+                                        <th class="pb-3">Last Acquisition</th>
+                                        <th class="pb-3">Vault Items</th>
+                                        <th class="pb-3">Status</th>
+                                    </tr>
                                 </thead>
                                 <tbody class="divide-y divide-border">
-                                    <tr><td class="py-4">Eleanor Weiss</td><td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-bold">Barrel Reserve</span></td><td class="py-4 text-secondary-text">May 15, 2026</td><td class="py-4">12 notes</td><td class="py-4"><span class="badge-success px-3 py-1 rounded-full text-xs">Active</span></td></tr>
-                                    <tr><td class="py-4">Marcus Chen</td><td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Hoppy Quarterly</span></td><td class="py-4 text-secondary-text">May 10, 2026</td><td class="py-4">6 notes</td><td class="py-4"><span class="badge-success px-3 py-1 rounded-full text-xs">Active</span></td></tr>
-                                    <tr><td class="py-4">Isabella Rossi</td><td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs">Sour Explorer</span></td><td class="py-4 text-secondary-text">May 2, 2026</td><td class="py-4">21 notes</td><td class="py-4"><span class="badge-warning px-3 py-1 rounded-full text-xs">Shipment Pending</span></td></tr>
+                                    <tr>
+                                        <td class="py-4 font-bold">Eleanor Weiss</td>
+                                        <td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-bold">Museum Curator</span></td>
+                                        <td class="py-4 text-secondary-text">May 15, 2026</td>
+                                        <td class="py-4">12 Specimens</td>
+                                        <td class="py-4"><span class="bg-emerald-500/10 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 font-bold">Marcus Chen</td>
+                                        <td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-bold">Private Collector</span></td>
+                                        <td class="py-4 text-secondary-text">May 10, 2026</td>
+                                        <td class="py-4">6 Specimens</td>
+                                        <td class="py-4"><span class="bg-emerald-500/10 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold">Active</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 font-bold">Isabella Rossi</td>
+                                        <td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-bold">Enthusiast</span></td>
+                                        <td class="py-4 text-secondary-text">May 2, 2026</td>
+                                        <td class="py-4">2 Specimens</td>
+                                        <td class="py-4"><span class="bg-amber-500/10 text-amber-600 px-3 py-1 rounded-full text-xs font-bold">Pending Wire</span></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -386,113 +492,242 @@
                 <!-- CLUB MEMBERS SECTION -->
                 <div id="users" class="admin-section hidden">
                     <div class="dashboard-card p-6 reveal">
-                        <h2 class="text-2xl font-serif font-bold mb-6"><span class="text-accent">◉</span> Club Members Directory</h2>
-                        <div class="flex flex-col sm:flex-row gap-4 mb-6"><div class="flex-1 relative"><input type="text" placeholder="Search by name, member ID..." class="w-full px-4 py-3 bg-hover border border-border rounded-xl"><i class="fa-solid fa-magnifying-glass absolute right-3 top-4 text-secondary-text"></i></div><select class="px-4 py-3 bg-hover border border-border rounded-xl"><option>All Tiers</option><option>Barrel Reserve</option><option>Hoppy Quarterly</option><option>Sour Explorer</option></select></div>
-                        <div class="overflow-x-auto"><table class="w-full text-sm"><thead class="border-b border-border"><tr><th class="pb-3 text-left">Member</th><th>Email</th><th>Tier</th><th>Join Date</th><th>Actions</th></tr></thead><tbody class="divide-y"><tr><td class="py-4">Eleanor Weiss</td><td>eleanor@hopclub.com</td><td><span class="text-accent">Barrel Reserve</span></td><td>Jan 2025</td><td><button class="text-accent">Manage Subscription</button></td></tr><tr><td class="py-4">David Park</td><td>david@craftlover.com</td><td><span class="text-accent">Hoppy Quarterly</span></td><td>Mar 2026</td><td><button class="text-accent">Edit</button></td></tr></tbody></table></div>
+                        <h2 class="text-2xl font-serif font-bold mb-6"><span class="text-accent">◉</span> Collector Directory</h2>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                            <div class="flex-1 relative"><input type="text" placeholder="Search by name, ID, or institution..."
+                                    class="w-full px-4 py-3 bg-hover border border-border rounded-xl"><i
+                                    class="fa-solid fa-magnifying-glass absolute right-3 top-4 text-secondary-text"></i>
+                            </div><select class="px-4 py-3 bg-hover border border-border rounded-xl">
+                                <option>All Tiers</option>
+                                <option>Museum Curator</option>
+                                <option>Private Collector</option>
+                                <option>Enthusiast</option>
+                            </select>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left">
+                                <thead class="border-b border-border text-secondary-text text-xs uppercase tracking-wider">
+                                    <tr>
+                                        <th class="pb-3">Collector Name</th>
+                                        <th class="pb-3">Contact Email</th>
+                                        <th class="pb-3">VIP Tier</th>
+                                        <th class="pb-3">Join Date</th>
+                                        <th class="pb-3">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-border">
+                                    <tr>
+                                        <td class="py-4 font-bold">Eleanor Weiss</td>
+                                        <td class="py-4 text-secondary-text">eleanor.w@smithsonian.edu</td>
+                                        <td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-bold">Museum Curator</span></td>
+                                        <td class="py-4 text-secondary-text">Jan 2025</td>
+                                        <td class="py-4"><button class="text-accent hover:underline font-bold">Manage Profile</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 font-bold">David Park</td>
+                                        <td class="py-4 text-secondary-text">david@privatevault.com</td>
+                                        <td class="py-4"><span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-bold">Private Collector</span></td>
+                                        <td class="py-4 text-secondary-text">Mar 2026</td>
+                                        <td class="py-4"><button class="text-accent hover:underline font-bold">Manage Profile</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
                 <!-- QUARTERLY SHIPMENTS MANAGEMENT -->
                 <div id="shipments" class="admin-section hidden">
-                    <div class="dashboard-card p-6 reveal"><h2 class="text-2xl font-serif font-bold mb-4"><span class="text-accent">📦</span> Q2 2026 Shipment Tracker</h2><p class="mb-4 text-secondary-text">Manage quarterly dispatch, track delivery status, and update beer lineup.</p><div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="p-4 border border-border rounded-xl"><div class="flex justify-between"><span class="font-bold">West Coast IPA</span><span class="badge-success px-2 py-0.5 text-xs">Shipped</span></div><div class="text-sm text-secondary-text">Batch #WC-101 · 420 bottles sent</div></div><div class="p-4 border border-border rounded-xl"><div class="flex justify-between"><span class="font-bold">Barrel-aged Stout</span><span class="badge-warning px-2 py-0.5 text-xs">Processing</span></div><div class="text-sm text-secondary-text">ETA: May 28th</div></div></div><button class="btn-accent mt-6 px-5 py-2 rounded-xl">Generate Shipping Labels</button></div>
-                </div>
-
-                <!-- TASTING NOTES LIBRARY -->
-                <div id="tasting-notes" class="admin-section hidden">
-                    <div class="dashboard-card p-6 reveal"><h2 class="text-2xl font-serif font-bold mb-2"><span class="text-accent">🍻</span> Tasting Notes Library</h2><p class="text-secondary-text mb-6">Curate sensory profiles, aroma, bitterness, and food pairing references for members.</p><div class="grid grid-cols-1 sm:grid-cols-2 gap-5"><div class="p-5 bg-hover rounded-2xl"><h3 class="font-bold">Hazy Summer Citrus Ale</h3><p class="text-sm mt-2 italic">“Notes of grapefruit, pine, with a crisp dry finish. IBU: 38”</p><button class="mt-3 text-accent text-sm">Edit note & pairing</button></div><div class="p-5 bg-hover rounded-2xl"><h3 class="font-bold">Smoked Porter '26</h3><p class="text-sm mt-2 italic">“Roasted malt, dark chocolate, subtle smoke. Pair with BBQ ribs.”</p><button class="mt-3 text-accent text-sm">Update guide</button></div></div><button class="btn-accent mt-6 px-6 py-2 rounded-xl">+ Add New Seasonal Release</button></div>
-                </div>
-
-                <!-- FOOD PAIRING GUIDES -->
-                <div id="pairings" class="admin-section hidden">
-                    <div class="dashboard-card p-6 reveal"><h2 class="text-2xl font-serif font-bold"><span class="text-accent">🍽️</span> Gastronomy Pairing Library</h2><p class="mb-5">Curated pairings: cheese, grilled meats, desserts, and more.</p><div class="space-y-4"><div class="flex justify-between items-center border-b pb-3"><span class="font-bold">Belgian Tripel → Blue Cheese + Honey</span><button class="text-accent">Edit</button></div><div class="flex justify-between items-center border-b pb-3"><span class="font-bold">Imperial Stout → Dark Chocolate Brownie</span><button class="text-accent">Edit</button></div><div class="flex justify-between"><span class="font-bold">Pale Ale → Spicy Tacos</span><button class="text-accent">Promote</button></div></div></div>
-                </div>
-
-                <!-- BREWERY TOURS BOOKING -->
-                <div id="tours" class="admin-section hidden">
-                    <div class="dashboard-card p-6 reveal"><h2 class="text-2xl font-serif font-bold"><span class="text-accent">🏭</span> Brewery Tours & Tastings</h2><div class="grid md:grid-cols-2 gap-6 mt-5"><div><h3 class="font-bold mb-2">Upcoming Reservations</h3><ul class="space-y-2"><li>May 25, 3pm - Group of 8 (VIP Tasting)</li><li>May 26, 11am - Homebrew Club (12 pax)</li><li>May 28, 2pm - Private cellar tour</li></ul></div><div><h3 class="font-bold mb-2">Bookings Calendar</h3><input type="date" class="w-full p-2 border border-border rounded-xl bg-hover"/><button class="btn-accent w-full mt-4 py-2 rounded-xl">Manage Availability</button></div></div></div>
-                </div>
-
-                <!-- SUBSCRIPTION CONFIGURATION / SETTINGS -->
-<div id="settings" class="admin-section hidden">
-    
-    <div class="dashboard-card p-6 reveal bg-white dark:bg-[#111827] rounded-2xl">
-        
-        <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white">
-            Subscription & Shipping Config
-        </h2>
-
-        <div class="space-y-5 mt-5">
-
-            <!-- Shipment Schedule -->
-            <div>
-                <label class="block font-bold mb-1 text-gray-800 dark:text-gray-200">
-                    Quarterly Shipment Schedule
-                </label>
-
-                <select class="p-2 border border-gray-300 dark:border-gray-700 rounded-xl w-full bg-white dark:bg-[#1f2937] text-gray-900 dark:text-white">
-                    <option>Q2: May 1 - May 20</option>
-                    <option>Q3: Aug 1 - Aug 20</option>
-                </select>
-            </div>
-
-            <!-- PDF Upload -->
-            <div>
-                <label class="block font-bold mb-1 text-gray-800 dark:text-gray-200">
-                    Member Tasting Note Access (PDF)
-                </label>
-
-                <input type="file" class="text-sm text-gray-700 dark:text-gray-300"/>
-            </div>
-
-            <!-- Toggle -->
-            <div class="flex items-center justify-between pt-3">
-                <span class="font-bold text-gray-800 dark:text-gray-200">
-                    Auto-billing for Club Members
-                </span>
-
-                <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" class="sr-only peer" checked>
-
-                    <div class="w-11 h-6 bg-gray-300 rounded-full
-                        peer-checked:after:translate-x-full
-                        after:content-['']
-                        after:absolute
-                        after:top-[2px]
-                        after:left-[2px]
-                        after:bg-white
-                        after:rounded-full
-                        after:h-5
-                        after:w-5
-                        after:transition-all
-                        peer-checked:bg-accent">
+                    <div class="dashboard-card p-6 reveal">
+                        <h2 class="text-2xl font-serif font-bold mb-4"><span class="text-accent">📦</span> Secured Logistics Tracker</h2>
+                        <p class="mb-4 text-secondary-text">Manage freight, insured transit, and high-value specimen delivery statuses.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 border border-border rounded-xl">
+                                <div class="flex justify-between"><span class="font-bold">Megalodon Tooth #M-101</span><span
+                                        class="badge-success px-2 py-0.5 text-xs bg-emerald-500/10 text-emerald-600 rounded-full font-bold">In Transit</span></div>
+                                <div class="text-sm text-secondary-text mt-1">Armored Carrier · White Glove Delivery</div>
+                            </div>
+                            <div class="p-4 border border-border rounded-xl">
+                                <div class="flex justify-between"><span class="font-bold">Amethyst Geode (1.2t)</span><span
+                                        class="badge-warning px-2 py-0.5 text-xs bg-amber-500/10 text-amber-600 rounded-full font-bold">Crating Pending</span></div>
+                                <div class="text-sm text-secondary-text mt-1">Freight Transport · ETA: May 28th</div>
+                            </div>
+                        </div><button class="btn-primary mt-6 px-5 py-2 rounded-xl">Generate Freight Manifests</button>
                     </div>
-                </label>
-            </div>
+                </div>
+                <!-- SPECIMEN INVENTORY -->
+                <div id="inventory" class="admin-section hidden">
+                    <div class="dashboard-card p-6 reveal">
+                        <h2 class="text-2xl font-serif font-bold mb-2"><span class="text-accent">💎</span> Specimen Inventory</h2>
+                        <p class="text-secondary-text mb-6">Manage your catalog of fossils, minerals, and rare geological specimens.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="border border-border rounded-2xl overflow-hidden bg-hover">
+                                <img src="/assets/ul.jpg" class="w-full h-40 object-cover" />
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">Imperial Topaz</h3>
+                                    <p class="text-xs text-secondary-text uppercase tracking-wider mt-1">Brazilian Highlands</p>
+                                    <div class="flex justify-between items-center mt-4">
+                                        <span class="font-bold text-accent">$12,500</span>
+                                        <button class="text-xs text-white bg-black/50 hover:bg-black px-3 py-1 rounded-full transition">Edit Item</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border border-border rounded-2xl overflow-hidden bg-hover">
+                                <img src="/assets/p2.jpg" class="w-full h-40 object-cover" />
+                                <div class="p-4">
+                                    <h3 class="font-bold text-lg">Fluorite Cluster</h3>
+                                    <p class="text-xs text-secondary-text uppercase tracking-wider mt-1">UV Reactive</p>
+                                    <div class="flex justify-between items-center mt-4">
+                                        <span class="font-bold text-accent">$8,200</span>
+                                        <button class="text-xs text-white bg-black/50 hover:bg-black px-3 py-1 rounded-full transition">Edit Item</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border border-border rounded-2xl overflow-hidden bg-hover flex items-center justify-center min-h-[250px] border-dashed hover:border-accent transition cursor-pointer">
+                                <div class="text-center">
+                                    <i class="fa-solid fa-plus text-2xl text-secondary-text mb-2"></i>
+                                    <p class="font-bold">Add Specimen</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Button -->
-            <button class="btn-accent w-full py-3 rounded-xl mt-3">
-                Save Subscription Settings
-            </button>
+                <!-- SALES & ORDERS -->
+                <div id="orders" class="admin-section hidden">
+                    <div class="dashboard-card p-6 reveal">
+                        <h2 class="text-2xl font-serif font-bold mb-2"><span class="text-accent">🧾</span> Sales Ledger</h2>
+                        <p class="text-secondary-text mb-6">Track customer purchases, pending invoices, and historical sales data.</p>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left">
+                                <thead class="border-b border-border text-secondary-text text-xs uppercase tracking-wider">
+                                    <tr>
+                                        <th class="pb-3">Order ID</th>
+                                        <th class="pb-3">Client</th>
+                                        <th class="pb-3">Date</th>
+                                        <th class="pb-3">Amount</th>
+                                        <th class="pb-3">Payment Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-border">
+                                    <tr>
+                                        <td class="py-4 font-mono font-bold text-accent">#ORD-9021</td>
+                                        <td class="py-4 font-bold">Isabella Rossi</td>
+                                        <td class="py-4 text-secondary-text">Today, 10:42 AM</td>
+                                        <td class="py-4 font-bold">$42,500</td>
+                                        <td class="py-4"><span class="bg-emerald-500/10 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold">Paid</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-4 font-mono font-bold text-accent">#ORD-9020</td>
+                                        <td class="py-4 font-bold">David Park</td>
+                                        <td class="py-4 text-secondary-text">Yesterday</td>
+                                        <td class="py-4 font-bold">$8,200</td>
+                                        <td class="py-4"><span class="bg-amber-500/10 text-amber-600 px-3 py-1 rounded-full text-xs font-bold">Pending Wire</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-        </div>
-    </div>
-</div>
+                <!-- PRIVATE VIEWINGS BOOKING -->
+                <div id="tours" class="admin-section hidden">
+                    <div class="dashboard-card p-6 reveal">
+                        <h2 class="text-2xl font-serif font-bold"><span class="text-accent">🏛️</span> Private Viewings & Appraisals</h2>
+                        <div class="grid md:grid-cols-2 gap-6 mt-5">
+                            <div>
+                                <h3 class="font-bold mb-2">Upcoming Consultations</h3>
+                                <ul class="space-y-2">
+                                    <li>May 25, 3pm - Museum Delegation (VIP Appraisal)</li>
+                                    <li>May 26, 11am - Private Investor (Dinosaur Fossils)</li>
+                                    <li>May 28, 2pm - General Private Gallery Tour</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-2">Bookings Calendar</h3>
+                                <input type="date" class="w-full p-2 border border-border rounded-xl bg-hover" />
+                                <button class="btn-accent w-full mt-4 py-2 rounded-xl">Manage Availability</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VAULT CONFIGURATION / SETTINGS -->
+                <div id="settings" class="admin-section hidden">
+                    <div class="dashboard-card p-6 reveal bg-white dark:bg-[#111827] rounded-2xl">
+                        <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white">
+                            Vault & Operations Config
+                        </h2>
+                        <div class="space-y-5 mt-5">
+                            <!-- Exhibition Schedule -->
+                            <div>
+                                <label class="block font-bold mb-1 text-gray-800 dark:text-gray-200">
+                                    Quarterly Exhibition Schedule
+                                </label>
+                                <select class="p-2 border border-gray-300 dark:border-gray-700 rounded-xl w-full bg-white dark:bg-[#1f2937] text-gray-900 dark:text-white">
+                                    <option>Q2: Meteorite Showcase (May 1 - May 20)</option>
+                                    <option>Q3: Rare Gems Gala (Aug 1 - Aug 20)</option>
+                                </select>
+                            </div>
+
+                            <!-- PDF Upload -->
+                            <div>
+                                <label class="block font-bold mb-1 text-gray-800 dark:text-gray-200">
+                                    Member Digital Appraisal Certificates (PDF)
+                                </label>
+                                <input type="file" class="text-sm text-gray-700 dark:text-gray-300" />
+                            </div>
+
+                            <!-- Toggle -->
+                            <div class="flex items-center justify-between pt-3">
+                                <span class="font-bold text-gray-800 dark:text-gray-200">
+                                    Auto-billing for VIP Retainers
+                                </span>
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input type="checkbox" class="sr-only peer" checked>
+                                    <div class="w-11 h-6 bg-gray-300 rounded-full
+                                        peer-checked:after:translate-x-full
+                                        after:content-['']
+                                        after:absolute
+                                        after:top-[2px]
+                                        after:left-[2px]
+                                        after:bg-white
+                                        after:rounded-full
+                                        after:h-5
+                                        after:w-5
+                                        after:transition-all
+                                        peer-checked:bg-accent">
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Button -->
+                            <button class="btn-accent w-full py-3 rounded-xl mt-3">
+                                Save Vault Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <footer class="text-center text-xs text-secondary-text border-t border-border pt-8 pb-4">
-                    <p>© 2026 Gemora Brewers' Guild — Artisanal fermentation & craftsmanship</p>
-                    <div class="flex justify-center gap-6 mt-4"><a href="#" class="hover:text-accent">Fermentation Logs</a><a href="#" class="hover:text-accent">Members' Analytics</a><a href="#" class="hover:text-accent">Backup Recipes</a></div>
+                    <p>© 2026 Gemora Specimen Dealership — Rare Fossils & Earth's Masterpieces</p>
+                    <div class="flex justify-center gap-6 mt-4">
+                        <a href="#" class="hover:text-accent">Acquisition Logs</a>
+                        <a href="#" class="hover:text-accent">Collector Analytics</a>
+                        <a href="#" class="hover:text-accent">Secure Backups</a>
+                    </div>
                 </footer>
-            </div>
-        </div>
-    </main>
+                </main>
+    </div>
 
     <script>
-        (function() {
+        (function () {
             const html = document.documentElement;
             function setTheme(theme) { html.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); document.querySelectorAll('.light-icon').forEach(i => i.classList.toggle('hidden', theme === 'dark')); document.querySelectorAll('.dark-icon').forEach(i => i.classList.toggle('hidden', theme === 'light')); }
             setTheme(localStorage.getItem('theme') || 'light');
             document.getElementById('theme-toggle')?.addEventListener('click', () => setTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
-            
+
             function setDirection(dir) { html.setAttribute('dir', dir); localStorage.setItem('language', dir === 'rtl' ? 'ar' : 'en'); }
             setDirection(localStorage.getItem('language') === 'ar' ? 'rtl' : 'ltr');
             document.getElementById('lang-toggle')?.addEventListener('click', () => setDirection(html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr'));
@@ -501,19 +736,20 @@
             function toggleMobile(open) { sidebar.classList.toggle('-translate-x-full', !open); overlay.classList.toggle('active', open); document.body.style.overflow = open ? 'hidden' : ''; }
             menuToggle?.addEventListener('click', () => toggleMobile(true)); closeSidebar?.addEventListener('click', () => toggleMobile(false)); overlay?.addEventListener('click', () => toggleMobile(false));
 
-            const sections = ['overview', 'users', 'shipments', 'tasting-notes', 'pairings', 'tours', 'settings'];
+            const sections = ['overview', 'users', 'shipments', 'inventory', 'orders', 'tours', 'settings'];
             const links = document.querySelectorAll('.sidebar-link');
-            window.activateSection = function(sectionId) { sections.forEach(id => document.getElementById(id)?.classList.add('hidden')); document.getElementById(sectionId)?.classList.remove('hidden'); links.forEach(link => { link.classList.remove('active'); if (link.dataset.section === sectionId) link.classList.add('active'); }); if (window.innerWidth < 1024) toggleMobile(false); };
-            links.forEach(link => { if(link.dataset.section) link.addEventListener('click', (e) => { e.preventDefault(); activateSection(link.dataset.section); }); });
+            window.activateSection = function (sectionId) { sections.forEach(id => document.getElementById(id)?.classList.add('hidden')); document.getElementById(sectionId)?.classList.remove('hidden'); links.forEach(link => { link.classList.remove('active'); if (link.dataset.section === sectionId) link.classList.add('active'); }); if (window.innerWidth < 1024) toggleMobile(false); };
+            links.forEach(link => { if (link.dataset.section) link.addEventListener('click', (e) => { e.preventDefault(); activateSection(link.dataset.section); }); });
 
             setTimeout(() => {
                 const shipCtx = document.getElementById('shipmentChart')?.getContext('2d');
-                if(shipCtx) new Chart(shipCtx, { type: 'bar', data: { labels: ['Q1', 'Q2', 'Q3 (est)', 'Q4 projected'], datasets: [{ label: 'Bottles Shipped', data: [980, 1420, 1650, 1900], backgroundColor: '#E6B325', borderRadius: 8 }] }, options: { responsive: true } });
+                if (shipCtx) new Chart(shipCtx, { type: 'bar', data: { labels: ['Q1', 'Q2', 'Q3 (est)', 'Q4 projected'], datasets: [{ label: 'Bottles Shipped', data: [980, 1420, 1650, 1900], backgroundColor: '#E6B325', borderRadius: 8 }] }, options: { responsive: true } });
                 const pairCtx = document.getElementById('pairingChart')?.getContext('2d');
-                if(pairCtx) new Chart(pairCtx, { type: 'doughnut', data: { labels: ['Cheese Pairings', 'Grilled Meats', 'Dessert Stouts', 'Seafood Ales'], datasets: [{ data: [42, 28, 18, 12], backgroundColor: ['#E6B325', '#5C4033', '#BCAAA4', '#D4A373'] }] }, options: { plugins: { legend: { position: 'bottom' } } } });
+                if (pairCtx) new Chart(pairCtx, { type: 'doughnut', data: { labels: ['Cheese Pairings', 'Grilled Meats', 'Dessert Stouts', 'Seafood Ales'], datasets: [{ data: [42, 28, 18, 12], backgroundColor: ['#E6B325', '#5C4033', '#BCAAA4', '#D4A373'] }] }, options: { plugins: { legend: { position: 'bottom' } } } });
             }, 100);
-            document.getElementById("logoutBtn")?.addEventListener("click", function(e){ e.preventDefault(); localStorage.clear(); sessionStorage.clear(); window.location.href = "login.html"; });
+            document.getElementById("logoutBtn")?.addEventListener("click", function (e) { e.preventDefault(); localStorage.clear(); sessionStorage.clear(); window.location.href = "login.html"; });
         })();
     </script>
 </body>
+
 </html>
